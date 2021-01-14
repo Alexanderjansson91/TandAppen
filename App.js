@@ -16,9 +16,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LandingScreen from './components/auth/Landing'
 import RegisterScreen from './components/auth/Register'
 import LoginScreen from './components/auth/Login'
+import SaveCaseScreen from './components/auth/SaveCase'
+import NewCaseScreen from './components/auth/NewCase'
 import { TouchableWithoutFeedbackBase } from 'react-native';
 import MainScreen from './Main'
-
+import MainScreenCostumer from './MainCustomer'
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -87,10 +89,13 @@ render() {
     return (
       <NavigationContainer>
       <Stack.Navigator initialRouteName="Landing">
-        <Stack.Screen name="Landing" component={LandingScreen} 
+        <Stack.Screen name="Landing" component={MainScreenCostumer} 
         options= {{headerShown:false}}/>
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Case" component={NewCaseScreen} navigation={this.props.navigation} />
+        <Stack.Screen name="SaveCase" component={SaveCaseScreen} navigation={this.props.navigation} />
+        <Stack.Screen name="About" component={SaveCaseScreen} navigation={this.props.navigation} />
       </Stack.Navigator>
     </NavigationContainer>
        );

@@ -1,6 +1,13 @@
-import { USER_POSTS_STATE_CHANGE, USER_STATE_CHANGE } from '../constants/index'
+import { USER_POSTS_STATE_CHANGE, USER_STATE_CHANGE, CLEAR_DATA } from '../constants/index'
 import firebase from 'firebase'
 require('firebase/firestore')
+
+export function clearData(){
+    return((dispatch) => {
+        dispatch({type: CLEAR_DATA})
+    })
+}
+
 
 export function fetchUser() {
     return ((dispatch) => {
@@ -23,7 +30,7 @@ export function fetchUserPosts() {
     return ((dispatch) => {
             firebase.firestore()
             .collection("posts")
-            .doc(firebase.auth().currentUser.uid)
+            .doc("newpost")
             .collection("userPosts")
             .orderBy("creation", "asc")
             .get()

@@ -1,11 +1,17 @@
 import React from 'react'
-import { StyleSheet ,View, Text, Image, FlatList} from 'react-native'
-
+import { StyleSheet ,View, Text, Image, FlatList, Button} from 'react-native'
+import firebase from 'firebase'
+require('firebase/firestore')
 import { connect } from 'react-redux'
 
 function Profile(props) {
     const {currentUser,posts} = props;
     console.log({currentUser,posts});
+
+    const onLogout = () => {
+        firebase.auth().signOut();
+    }
+
     return (
         <View style={styles.container}>
         <View style={styles.infoContainer}>
@@ -29,6 +35,10 @@ function Profile(props) {
             )}
             />
         </View>
+        <Button 
+        title="Logga ut"
+        onPress={() => onLogout()}
+        />
         </View>
     )
 }

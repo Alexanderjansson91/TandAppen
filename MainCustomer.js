@@ -1,34 +1,28 @@
 import React, { Component } from 'react'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import {View,Text} from 'react-native'
 
-
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { fetchUser, fetchUserPosts, clearData } from './redux/actions/index'
-
-import FeedScreen from './components/main/Feed'
-import ProfileScreen from './components/main/Profile'
-import AddScreen from './components/main/Add'
+import LandingScreen from './components/auth/Landing'
+import NewCaseScreen from './components/auth/NewCase'
+import AboutUsScreen from './components/auth/About'
 import { event } from 'react-native-reanimated';
 
 
 const Tab = createMaterialBottomTabNavigator();
 
+
 const EmptyScreen = () => {
     return(null)
 }
 
-export class Main extends Component {
-    componentDidMount() {
-        this.props.fetchUser();
-        this.props.clearData();
-        this.props.fetchUserPosts();
-    }
-    render() {
+export class MainCustomer extends Component {
+  
+    render() {            
+  
         return (
-            <Tab.Navigator initialRouteName="Feed" labeled={false}>
-                <Tab.Screen name="Feed" component={FeedScreen}
+            <Tab.Navigator initialRouteName="Landing" labeled={false}>
+                <Tab.Screen name="Feed" component={LandingScreen}
                 options={{
                     tabBarIcon:({color, size}) => (
                         <MatetrialCommunityIcons name="home" color={color} size={26}/>
@@ -38,7 +32,7 @@ export class Main extends Component {
                 listeners={({ navigation }) =>   ({
                     tabPress:event =>{
                         event.preventDefault();
-                        navigation.navigate("Add")
+                        navigation.navigate("Case")
                     }
                 })}
                 options={{
@@ -46,10 +40,10 @@ export class Main extends Component {
                         <MatetrialCommunityIcons name="plus-box" color={color} size={26}/>
                     ),
                 }} />
-                <Tab.Screen name="Profile" component={ProfileScreen}
+                <Tab.Screen name="About" component={AboutUsScreen}
                 options={{
                     tabBarIcon:({color, size}) => (
-                        <MatetrialCommunityIcons name="account-circle" color={color} size={26}/>
+                        <MatetrialCommunityIcons name="information" color={color} size={26}/>
                     ),
                 }} />
 
@@ -59,9 +53,4 @@ export class Main extends Component {
     }
 }
 
-const mapStateToProps = (store) => ({
-    currentUser: store.userState.currentUser
-})
-const mapDispatchProps = (dispatch) => bindActionCreators({ fetchUser, fetchUserPosts, clearData }, dispatch)
-
-export default connect(mapStateToProps, mapDispatchProps)(Main)
+export default MainCustomer
