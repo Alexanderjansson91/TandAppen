@@ -13,18 +13,19 @@ import SaveScreen from './components/main/Save'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LandingScreen from './components/auth/Landing'
+import LandingScreen from './components/customer/Landing'
+import InfoCaseScreen from './components/customer/InfoCase'
 import RegisterScreen from './components/auth/Register'
 import LoginScreen from './components/auth/Login'
-import SaveCaseScreen from './components/auth/SaveCase'
-import NewCaseScreen from './components/auth/NewCase'
+import SaveCaseScreen from './components/customer/SaveCase'
+import NewCaseScreen from './components/customer/NewCase'
 import { TouchableWithoutFeedbackBase } from 'react-native';
 import MainScreen from './Main'
 import MainScreenCostumer from './MainCustomer'
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyALnRSDP24y45XNf1-gqNFaS0vFNZ_nBWM",
   authDomain: "tandappen-80969.firebaseapp.com",
   projectId: "tandappen-80969",
   storageBucket: "tandappen-80969.appspot.com",
@@ -93,7 +94,8 @@ render() {
         options= {{headerShown:false}}/>
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Case" component={NewCaseScreen} navigation={this.props.navigation} />
+        <Stack.Screen name="Case" component={InfoCaseScreen} />
+        <Stack.Screen name="NewCase" component={NewCaseScreen} navigation={this.props.navigation} />
         <Stack.Screen name="SaveCase" component={SaveCaseScreen} navigation={this.props.navigation} />
         <Stack.Screen name="About" component={SaveCaseScreen} navigation={this.props.navigation} />
       </Stack.Navigator>

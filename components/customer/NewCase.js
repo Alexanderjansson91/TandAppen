@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, Modal, Alert,TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
+import ImageModal from '../style/ImageModal'
 
 export default function NewCase({navigation}) {
   const [hasCameraPermission, setCameraPermission] = useState(null);
@@ -9,6 +10,9 @@ export default function NewCase({navigation}) {
   const [camera, setCamera] = useState(null);
   const [image, setImage] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
+  const [open, setOpen] = useState(false)
+
+
 
   useEffect(() => {
     (async () => {
@@ -28,6 +32,7 @@ export default function NewCase({navigation}) {
     }
   }
 
+  
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -72,13 +77,14 @@ export default function NewCase({navigation}) {
            
           </Button>
 
-          <Button style={{margin:20}} title="Ta Bild" onPress= {() => takePicture()}/>
+          <Button 
+          style={{margin:20}} 
+          title="Ta Bild" 
+          onPress= {() => {takePicture(); setOpen(true);}}/>
           <Button style={{margin:20}} title="Välj Bild" onPress= {() => pickImage()}/>
           <Button style={{margin:20}} title="Spara" onPress= {() => navigation.navigate('SaveCase', {image})}/>
 
-
           {image && <Image source= {{uri: image}} style= {{flex:1, }}   />}
-
           </View>
   );
 }
