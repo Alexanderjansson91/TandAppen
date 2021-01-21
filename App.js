@@ -8,24 +8,24 @@ import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './redux/reducers'
 import thunk from 'redux-thunk'
 const store = createStore(rootReducer, applyMiddleware(thunk))
-import AddScreen from './components/main/Add'
-import SaveScreen from './components/main/Save'
+import AddScreen from './screens/main/Add'
+import SaveScreen from './screens/main/Save'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LandingScreen from './components/customer/Landing'
-import InfoCaseScreen from './components/customer/InfoCase'
-import RegisterScreen from './components/auth/Register'
-import LoginScreen from './components/auth/Login'
-import SaveCaseScreen from './components/customer/SaveCase'
-import NewCaseScreen from './components/customer/NewCase'
+import LandingScreen from './screens/customer/Landing'
+import InfoCaseScreen from './screens/customer/InfoCase'
+import RegisterScreen from './screens/auth/Register'
+import LoginScreen from './screens/auth/Login'
+import SaveCaseScreen from './screens/customer/SaveCase'
+import NewCaseScreen from './screens/customer/NewCase'
 import { TouchableWithoutFeedbackBase } from 'react-native';
 import MainScreen from './Main'
 import MainScreenCostumer from './MainCustomer'
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyALnRSDP24y45XNf1-gqNFaS0vFNZ_nBWM",
+  apiKey: "",
   authDomain: "tandappen-80969.firebaseapp.com",
   projectId: "tandappen-80969",
   storageBucket: "tandappen-80969.appspot.com",
@@ -94,7 +94,7 @@ render() {
         options= {{headerShown:false}}/>
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Case" component={InfoCaseScreen} />
+        <Stack.Screen name="Case" component={InfoCaseScreen} options={{headerShown: false}}/>
         <Stack.Screen name="NewCase" component={NewCaseScreen} navigation={this.props.navigation} />
         <Stack.Screen name="SaveCase" component={SaveCaseScreen} navigation={this.props.navigation} />
         <Stack.Screen name="About" component={SaveCaseScreen} navigation={this.props.navigation} />

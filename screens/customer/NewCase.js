@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button, Image, Modal, Alert,TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
-import ImageModal from '../style/ImageModal'
+import ImageModal from '../../components/style/ImageModal'
+
 
 export default function NewCase({navigation}) {
   const [hasCameraPermission, setCameraPermission] = useState(null);
@@ -42,11 +43,12 @@ export default function NewCase({navigation}) {
     });
 
     console.log(result);
-
     if (!result.cancelled) {
       setImage(result.uri);
     }
   };
+
+
 
 
   if (hasCameraPermission === null || hasGalleryPermission == false) {
@@ -83,8 +85,8 @@ export default function NewCase({navigation}) {
           onPress= {() => {takePicture(); setOpen(true);}}/>
           <Button style={{margin:20}} title="Välj Bild" onPress= {() => pickImage()}/>
           <Button style={{margin:20}} title="Spara" onPress= {() => navigation.navigate('SaveCase', {image})}/>
-
           {image && <Image source= {{uri: image}} style= {{flex:1, }}   />}
+
           </View>
   );
 }

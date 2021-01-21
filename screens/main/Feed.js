@@ -3,8 +3,11 @@ import { StyleSheet ,View, Text, Image, FlatList, Button} from 'react-native'
 import firebase from 'firebase'
 require('firebase/firestore')
 import { connect } from 'react-redux'
+import Header from '../../components/style/Header'
+import MainView from '../../components/style/MainView'
 
-function Profile(props) {
+
+function Feed(props) {
     const {currentUser,posts} = props;
     console.log({currentUser,posts});
 
@@ -14,10 +17,8 @@ function Profile(props) {
 
     return (
         <View style={styles.container}>
-        <View style={styles.infoContainer}>
-            <Text>{currentUser.name}</Text>
-            <Text>{currentUser.email}</Text>
-        </View>
+            <Header headerText="Nordic Dental" click={() => onLogout()} icon="logout" ></Header>
+                    <MainView></MainView>
         <View style={styles.containerGallery}>
             <FlatList 
             numColumns={3}
@@ -35,19 +36,14 @@ function Profile(props) {
             )}
             />
         </View>
-        <Button 
-        title="Logga ut"
-        onPress={() => onLogout()}
-        />
+
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
-        marginTop:50,
- 
+        flex:1, 
     },
     infoContainer: {
         margin: 20
@@ -70,4 +66,4 @@ const mapStateToProps = (store) => ({
     posts: store.userState.posts,
 })
 
-export default connect(mapStateToProps, null)(Profile)
+export default connect(mapStateToProps, null)(Feed)

@@ -6,11 +6,8 @@ const MainView = (props)=> {
     const {container} = styles;
     return(
         <View style={container}>
-                <Text>{props.Textinfo}</Text>
-           
-        </View> 
-        
-       
+                <Text>{props.Textinfo}</Text>        
+        </View>      
     )
 }
 

@@ -7,9 +7,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchUser, fetchUserPosts, clearData } from './redux/actions/index'
 
-import FeedScreen from './components/main/Feed'
-import ProfileScreen from './components/main/Profile'
-import AddScreen from './components/main/Add'
+import FeedScreen from './screens/main/Feed'
+import ProfileScreen from './screens/main/Profile'
+
 import { event } from 'react-native-reanimated';
 
 
@@ -27,34 +27,22 @@ export class Main extends Component {
     }
     render() {
         return (
-            <Tab.Navigator initialRouteName="Feed" labeled={false}>
+            <Tab.Navigator initialRouteName="Feed" labeled={false} barStyle={{ backgroundColor: '#875195' }}>
+
                 <Tab.Screen name="Feed" component={FeedScreen}
                 options={{
                     tabBarIcon:({color, size}) => (
                         <MatetrialCommunityIcons name="home" color={color} size={26}/>
                     ),
                 }} />
-                <Tab.Screen name="AddContainer" component={EmptyScreen}
-                listeners={({ navigation }) =>   ({
-                    tabPress:event =>{
-                        event.preventDefault();
-                        navigation.navigate("Add")
-                    }
-                })}
-                options={{
-                    tabBarIcon:({color, size}) => (
-                        <MatetrialCommunityIcons name="plus-box" color={color} size={26}/>
-                    ),
-                }} />
+             
                 <Tab.Screen name="Profile" component={ProfileScreen}
                 options={{
                     tabBarIcon:({color, size}) => (
                         <MatetrialCommunityIcons name="account-circle" color={color} size={26}/>
                     ),
                 }} />
-
             </Tab.Navigator>
-
         )
     }
 }

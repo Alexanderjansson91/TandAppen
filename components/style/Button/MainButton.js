@@ -4,14 +4,11 @@ import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunity
 
 
 //My header View
-const Header = (props) => {
+const MainButton = (props) => {
     const { logoContainer, viewContainer, profilContainer, parent } = styles;
     return (
         <View style={viewContainer}>
             <View style={styles.parent}>
-                <Text style={logoContainer}>
-                    {props.headerText}
-                </Text>
                 <TouchableOpacity style={styles.profilContainer} onPress={props.click}>
                     <View>
                     <MatetrialCommunityIcons name={props.icon} color="white" size={26}/>
@@ -56,4 +53,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Header;
+export default MainButton;

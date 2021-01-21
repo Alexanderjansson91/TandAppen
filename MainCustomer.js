@@ -3,9 +3,9 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import {StyleSheet} from 'react-native'
 
-import LandingScreen from './components/customer/Landing'
-import InfoCaseScreen from './components/customer/InfoCase'
-import AboutUsScreen from './components/customer/About'
+import LandingScreen from './screens/customer/Landing'
+import InfoCaseScreen from './screens/customer/InfoCase'
+import AboutUsScreen from './screens/customer/About'
 import { event } from 'react-native-reanimated';
 
 
@@ -25,14 +25,14 @@ export class MainCustomer extends Component {
             <Tab.Navigator barStyle={{ backgroundColor: '#875195' }}
             initialRouteName="Landing" labeled={false}>
 
-                <Tab.Screen  name="Feed" component={LandingScreen}
+                <Tab.Screen  name="Landing" component={LandingScreen}
                 options={{
                     tabBarIcon:({color, size}) => (
                         <MatetrialCommunityIcons name="home" color={color} size={26}/>
                     ),
         
                 }} />
-                <Tab.Screen name="AddContainer" component={InfoCaseScreen}
+                <Tab.Screen name="Case" component={InfoCaseScreen}
     
                 options={{
                     tabBarIcon:({color, size}) => (

@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../style/Header'
-import MainView from '../style/MainView'
+import Header from '../../components/style/Header'
+import MainView from '../../components/style/MainView'
 
 
 import {View,Text,StyleSheet,TouchableOpacity} from 'react-native'
@@ -8,7 +8,8 @@ import {View,Text,StyleSheet,TouchableOpacity} from 'react-native'
 export default function InfoCase({navigation}) {
     return (
        <View style={styles.topContainer}>
-           <Header headerText="Nordic Dental" click=""></Header>
+           <Header headerText="Nordic Dental" click={() => navigation.navigate("Login")} icon="account-circle" ></Header>
+           <MainView></MainView>
            <MainView ></MainView>
            <Text>Nytt ärende</Text>
            <TouchableOpacity

@@ -1,7 +1,8 @@
 import React from 'react'
 import {Text, View, Button } from 'react-native'
-import Header from '../style/Header'
-import MainView from '../style/MainView'
+import Header from '../../components/style/Header'
+import MainView from '../../components/style/MainView'
+import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 export default function Landing({navigation}) {
@@ -9,15 +10,16 @@ export default function Landing({navigation}) {
 
        <View>
            <View>
-           <Header headerText="Nordic Dental" click={() => navigation.navigate("Login")}></Header>
+           <Header headerText="Nordic Dental" click={() => navigation.navigate("Login")} icon="account-circle" ></Header>
            <MainView></MainView>
            </View>
             <Button 
             title="Register"
+            
             onPress={() => navigation.navigate("Register")}
             />
             <Button 
-            title="Nytt ärende"
+            title="Nytt ärende"          
             onPress={() => navigation.navigate("Case")}
             />
        </View>
