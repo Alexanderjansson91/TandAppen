@@ -33,7 +33,6 @@ export default function NewCase({navigation}) {
     }
   }
 
-  
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,

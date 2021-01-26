@@ -14,7 +14,6 @@ const MainButton = (props) => {
                     <MatetrialCommunityIcons name={props.icon} color="white" size={26}/>
                     </View>
                 </TouchableOpacity>       
-                
             </View>
         </View>
     )

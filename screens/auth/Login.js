@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { View, Button, TextInput } from 'react-native';
+import { View, Button, TextInput, StyleSheet } from 'react-native';
+
+import EmailInputField from '../../components/textfields/EmailTextField'
+import PasswordInputField from '../../components/textfields/PasswordTextField'
+
+import SignInButton from '../../components/buttons/PageButton'
+import Heading from '../../components/text/HeadingText'
+import SubHeading from '../../components/text/Subheading'
 
 import firebase from 'firebase'
 export class Login extends Component {
@@ -29,21 +36,28 @@ export class Login extends Component {
 
     render() {
         return (
-            <View>
-                 <TextInput
-                 placeholder= "Email"
-                 onChangeText={(email) => this.setState({email})}
-                 />
-                 <TextInput
-                 placeholder= "Password"
-                 secureTextEntry={true}
-                 onChangeText={(password) => this.setState({password})}
-                 />
-
-                <Button 
-                onPress={() => this.onSignIn()}
-                title="Sign in"
+            <View style={styles.viewContainer}>
+                <View style={styles.space}></View>
+                <SubHeading subHeading="Enbart inloggning för företag."></SubHeading>
+                <SubHeading subHeading="Du som användare behöver inget konto."></SubHeading>
+                <EmailInputField 
+                placeHolder ="Email"
+                onChange={(email) => this.setState({email})}
+                
                 />
+                <PasswordInputField 
+                placeHolder ="Password"
+                onChange={(password) => this.setState({password})}
+                secureText={true}
+                />
+                <View style={styles.space}></View>      
+                <SignInButton 
+                click={() => this.onSignIn()}
+                textInfo="Logga in"
+                />
+                <View style={styles.bottomContainer}>
+
+                </View>
 
             </View>
         )
@@ -53,5 +67,24 @@ export class Login extends Component {
 export default Login
 
 
+const styles = StyleSheet.create({
+    viewContainer:{
+        backgroundColor: '#ffffff',
+        height:'100%',
+        width:'100%',
+    },  
+    borderstyleesdasd:{
+        borderStyle: 'solid',
+        borderWidth:1,
+        borderRadius:10,
+        borderColor:"black"
+    }, 
+    space:{
+        marginTop:40
+    },
+    bottomContainer:{
 
+    }
+
+});
 
