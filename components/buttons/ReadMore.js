@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 //My header View
@@ -11,8 +10,7 @@ const PageButton = (props) => {
             <View style={parent}>
                 <TouchableOpacity style={styles.profilContainer} onPress={props.click}>
                     <View style={styles.buttonView}>
-                        <Text style={styles.textButton}>{props.textInfo}{props.icon}</Text>
-                        <MatetrialCommunityIcons name={props.icon} color="#EFA600" size={26} />
+                        <Text style={styles.textButton}>{props.textButton}</Text>
                     </View>
                 </TouchableOpacity>
             </View>
@@ -29,33 +27,32 @@ const styles = StyleSheet.create({
     },
 
     profilContainer: {
-        backgroundColor: '#875195',
-        height: 50,
+     
+        height: 20,
         width: 200,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
-        borderStyle: 'solid',
-        borderRadius: 30,
-        borderColor: 'white',
-
 
     },
 
     buttonView:{
-        flex: 1,
-        flexDirection: 'row', 
         alignItems: 'center',
         alignSelf: 'center',
         justifyContent: 'center',
-
+        borderStyle:'solid',
+        borderBottomColor: '#875195',
+        borderBottomWidth: 1,
+        width:80,
+        margin:-10
     },
 
     textButton: {
-        color: 'white',
+        color: '#875195',
         fontWeight: '500',
         fontSize: 18,
+  
     },
    
 

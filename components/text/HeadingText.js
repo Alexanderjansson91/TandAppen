@@ -15,7 +15,9 @@ const HeadingText = (props)=> {
 const styles = StyleSheet.create({
     viewContainer:{
         backgroundColor: '#ffffff',
-        height:80,
+        height:75,
+        marginLeft:"5%",
+        marginRight:"5%",
     },  
     headingText:{
         textAlign:'center',

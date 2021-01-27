@@ -5,6 +5,7 @@ require('firebase/firestore')
 import { connect } from 'react-redux'
 import Header from '../../components/style/Header'
 import MainView from '../../components/style/MainView'
+import ResetButton from '../../components/buttons/PageButton'
 
 
 function Profile(props) {
@@ -14,6 +15,17 @@ function Profile(props) {
     const onLogout = () => {
         firebase.auth().signOut();
     }
+ var user = firebase.auth().currentUser;
+    const forgotPassword = () => {
+        var user = firebase.auth().currentUser.email;
+        firebase.auth().sendPasswordResetEmail(user)
+          .then(function (user) {
+            alert('Please check your email...')
+          }).catch(function (e) {
+            console.log(e)
+          })
+      }
+    
 
     return (
         <View style={styles.container}>
@@ -23,6 +35,9 @@ function Profile(props) {
         <View style={styles.infoContainer}>
             <Text>{currentUser.name}</Text>
             <Text>{currentUser.email}</Text>
+            <ResetButton textInfo="Skicka"
+            click={() => forgotPassword()}
+            />
         </View>
         </View>
     )

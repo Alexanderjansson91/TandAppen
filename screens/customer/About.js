@@ -19,9 +19,6 @@ const styles = StyleSheet.create({
 
     topContainer: {
       backgroundColor: '#fff',
-      flex: 1,
-  
+      flex: 1, 
     },
-  
-
   });

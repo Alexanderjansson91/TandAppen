@@ -64,15 +64,6 @@ componentDidMount(){
     }
   })
 }
-
-signOutUser = async () => {
-  try {
-      await firebase.auth().signOut();
-      navigate('Auth');
-  } catch (e) {
-      console.log(e);
-  }
-}
   
 render() {
   const { loggedIn, loaded} = this.state

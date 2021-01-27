@@ -1,15 +1,17 @@
 import React from 'react'
-import { StyleSheet ,View, Text, Image, FlatList, Button} from 'react-native'
+import { StyleSheet, View, Text, Image, FlatList, Button } from 'react-native'
 import firebase from 'firebase'
 require('firebase/firestore')
 import { connect } from 'react-redux'
 import Header from '../../components/style/Header'
 import MainView from '../../components/style/MainView'
+import CostumerInfoCard from '../../components/Cards/CustomerInfo'
+import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 function Feed(props) {
-    const {currentUser,posts} = props;
-    console.log({currentUser,posts});
+    const { currentUser, posts } = props;
+    console.log({ currentUser, posts });
 
     const onLogout = () => {
         firebase.auth().signOut();
@@ -18,24 +20,24 @@ function Feed(props) {
     return (
         <View style={styles.container}>
             <Header headerText="Nordic Dental" click={() => onLogout()} icon="logout" ></Header>
-                    <MainView></MainView>
-        <View style={styles.containerGallery}>
-            <FlatList 
-            numColumns={3}
-            horizontal={false}
-            data={posts}
-            renderItem={({item}) =>(
-                <View style={styles.containerImage}>
-                
-                <Image
-                style={styles.image}
-                    source={{uri: item.downloadURL}}
+            <MainView></MainView>
+            <View style={styles.containerGallery}>
+                <FlatList
 
+                    horizontal={false}
+                    data={posts}
+                    renderItem={({ item }) => (
+                        <View style={styles.containerImage}>
+                            <CostumerInfoCard ImageCustomer={{ uri: item.downloadURL }}
+                                iconName="account-circle" costumerName={item.name}
+                                iconEmail="email-box" costumerEmail={item.email}
+                                iconPhone="cellphone" costumerPhone={item.phone}
+                                iconMessage="message" costumerMessage={item.message}
+                            />
+                        </View>
+                    )}
                 />
-                </View>
-            )}
-            />
-        </View>
+            </View>
 
         </View>
     )
@@ -43,21 +45,22 @@ function Feed(props) {
 
 const styles = StyleSheet.create({
     container: {
-        flex:1, 
+        flex: 1,
+        backgroundColor: 'white'
     },
     infoContainer: {
         margin: 20
     },
-    containerGallery:{
+    containerGallery: {
+        margin: 20,
+        justifyContent: 'center',
+    },
+    image: {
+        flex: 1,
+        aspectRatio: 1 / 1
+    },
+    containerImage: {
 
-    },
-    image:{
-        flex:1,
-        aspectRatio:1/1
-    },
-    containerImage:{
-        flex:1/3,
-        aspectRatio:1/1
     }
 })
 

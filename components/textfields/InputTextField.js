@@ -5,13 +5,14 @@ import { StyleSheet, TextInput, View } from 'react-native';
 
 
 //My header View
-const HeadingText = (props)=> {
+const InputTextField = (props)=> {
     const {viewContainer,textInput} = styles;
 
     return(
         <View style={viewContainer}>
             <TextInput placeholder={props.placeHolder}
              ref={props.referens} 
+             onChangeText={props.changeText}
              style={textInput}
              ></TextInput>
         </View>      
@@ -43,5 +44,5 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HeadingText;
+export default InputTextField;
 

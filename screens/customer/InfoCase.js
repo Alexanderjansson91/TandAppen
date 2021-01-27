@@ -12,14 +12,14 @@ import ButtonNav from '../../components/buttons/PageButton'
 export default function InfoCase({navigation}) {
 
     return (
-      <ScrollView>
+      <ScrollView style={styles.topContainer}>
        <View style={styles.topContainer}>
            <Header headerText="Nordic Dental" click={() => navigation.navigate("Login")} icon="account-circle" ></Header>
            <MainView></MainView>
            <Heading Heading="Nytt ärende"></Heading>
            <SubHeading subHeading="Tänk på följande vid Fotograferingen."></SubHeading>
            <CheckList></CheckList>
-         <ButtonNav textInfo="Starta"  click={() => navigation.navigate("NewCase")} />
+         <ButtonNav textInfo="Starta" icon="plus" textButton="Läs mer" click={() => navigation.navigate("NewCase")} />
        </View>
        </ScrollView>
     )
@@ -28,8 +28,9 @@ export default function InfoCase({navigation}) {
 const styles = StyleSheet.create({
 
     topContainer: {
-      backgroundColor: '#fff',
+      backgroundColor: '#ffffff',
       flex: 1,
+      
   
     },
     button: {

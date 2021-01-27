@@ -4,18 +4,16 @@ import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunity
 
 
 //My header View
-const PageButton = (props) => {
-    const { logoContainer, viewContainer, profilContainer, parent } = styles;
+const CameraButtons = (props) => {
+    const { logoContainer, viewContainer, profilContainer } = styles;
     return (
         <View style={viewContainer}>
-            <View style={parent}>
                 <TouchableOpacity style={styles.profilContainer} onPress={props.click}>
                     <View style={styles.buttonView}>
-                        <Text style={styles.textButton}>{props.textInfo}</Text>
-                        <MatetrialCommunityIcons name={props.icon} color="#EFA600" size={26} />
+                        <MatetrialCommunityIcons name={props.icon} color="#875195" size={35} />
                     </View>
                 </TouchableOpacity>
-            </View>
+        
         </View>
     )
 }
@@ -29,7 +27,6 @@ const styles = StyleSheet.create({
     },
 
     profilContainer: {
-        backgroundColor: '#875195',
         height: 50,
         width: 200,
         flexDirection: 'row',
@@ -37,7 +34,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'center',
         borderStyle: 'solid',
-        borderRadius: 30,
+        borderRadius: 50,
         borderColor: 'white',
 
 
@@ -57,11 +54,11 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         fontSize: 18,
     },
-   
+  
 
 
 
 
 });
 
-export default PageButton;
+export default CameraButtons;
