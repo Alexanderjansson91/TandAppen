@@ -13,17 +13,17 @@ const CameraButtons = (props) => {
                         <MatetrialCommunityIcons name={props.icon} color="#875195" size={35} />
                     </View>
                 </TouchableOpacity>
-        
         </View>
     )
 }
-
-
 
 //Styles for my header
 const styles = StyleSheet.create({
     viewContainer: {
         flex: 1,
+        marginTop:20,
+    
+        
     },
 
     profilContainer: {
@@ -34,10 +34,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'center',
         borderStyle: 'solid',
+        
         borderRadius: 50,
-        borderColor: 'white',
-
-
+        borderColor: '#875195',
+        borderBottomWidth:1,
+        textAlignVertical:'center'
     },
 
     buttonView:{
@@ -46,7 +47,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'center',
         justifyContent: 'center',
-
+        textAlignVertical:'center',
+        marginBottom:10,
     },
 
     textButton: {

@@ -4,6 +4,9 @@ import { Camera } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
 import ImageModal from '../../components/style/ImageModal'
 import CameraButton from '../../components/buttons/CameraButtons'
+import HeadingTitle from '../../components/text/HeadingText'
+import SubTitle from '../../components/text/Subheading'
+import ExampleButton from '../../components/buttons/PageButton'
 
 
 export default function NewCase({ navigation }) {
@@ -12,7 +15,7 @@ export default function NewCase({ navigation }) {
   const [camera, setCamera] = useState(null);
   const [image, setImage] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
-  const [open, setOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -31,6 +34,7 @@ export default function NewCase({ navigation }) {
       setImage(data.uri)
     }
   }
+
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -52,8 +56,10 @@ export default function NewCase({ navigation }) {
   if (hasGalleryPermission === false || hasGalleryPermission == false) {
     return <Text>No access to camera</Text>;
   }
+
   return (
-    <View style={{ flex: 1 }}>
+
+    <View style={styles.container}>
       <View style={styles.cameraContainer}>
         <Camera
           style={styles.fixedRatio}
@@ -64,31 +70,56 @@ export default function NewCase({ navigation }) {
       </View>
       <View style={styles.parent}>
 
-        <CameraButton icon="camera-switch-outline" click={() => {
+        <CameraButton icon="camera-switch" click={() => {
           setType(
             type === Camera.Constants.Type.back
               ? Camera.Constants.Type.front
               : Camera.Constants.Type.back
           );
-        }}></CameraButton>
+        }}/>
         <CameraButton
-          icon="camera-plus"
-          click={() => { takePicture(); setOpen(true); }} />
+          icon="camera"
+          click={() => { { takePicture() }; { setModalOpen(true) } }} />
         <CameraButton
           icon="camera-image"
-          click={() => { () => pickImage() }} />
+          click={() => pickImage()} />  
+          
+       {/* <Button style={{ margin: 20 }} title="Spara" onPress={() => navigation.navigate('SaveCase', { image })} />*/}
 
       </View>
-      <Button style={{ margin: 20 }} title="Spara" onPress={() => navigation.navigate('SaveCase', { image })} />
-      {image && <Image source={{ uri: image }} style={{ flex: 1, }} />}
+      <View style={styles.infoContainer}>
+      <HeadingTitle Heading="Bild framifrån"/>
+      <SubTitle subHeading="Är du osäker?"/>
+      <View style={styles.exampleButton}>
+      <ExampleButton textInfo="Se exempel"/>
+      </View>
+      </View>
+      <Modal visible={modalOpen} animationType='slide' >
+        <ImageModal
+          returnButton="Ta om"
+          onClose={() => setModalOpen(false)}
+          costumerImage={{ uri: image }}
+          nextPage={() => navigation.navigate('SaveCase', { image })}
+          nextPageText="Välj"
+        />
+      </Modal>
+
     </View>
+
   );
+
 }
 
 const styles = StyleSheet.create({
 
+  container:{
+    backgroundColor:"#ffffff",
+    flex:1,
+
+  },
+
   cameraContainer: {
-    flex: 1,
+    flex: 1.7,
     flexDirection: 'row'
   },
   fixedRatio: {
@@ -96,9 +127,15 @@ const styles = StyleSheet.create({
     aspectRatio: 1
   },
   parent: {
-    flex: 1,
+    flex:0.5,
     flexDirection: 'row',
+  },
+  infoContainer:{
+    flex:1.2,
+  },
+  exampleButton:{
+    margin:30
   }
 
 
-})
+})            /*click={() => { {takePicture()}; {setModalOpen(true)}}} />*/

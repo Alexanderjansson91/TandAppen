@@ -105,11 +105,8 @@ render() {
       </Stack.Navigator>
       </NavigationContainer>
       </Provider>
-  
     )
   }
 }
 
 export default App
-
-

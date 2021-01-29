@@ -6,6 +6,9 @@ import { connect } from 'react-redux'
 import Header from '../../components/style/Header'
 import MainView from '../../components/style/MainView'
 import ResetButton from '../../components/buttons/PageButton'
+import ProfileCard from '../../components/Cards/ProfileCard'
+import HeaderProfile from '../../components/text/HeadingText'
+import InfoTextPassword from '../../components/text/Subheading'
 
 
 function Profile(props) {
@@ -20,22 +23,27 @@ function Profile(props) {
         var user = firebase.auth().currentUser.email;
         firebase.auth().sendPasswordResetEmail(user)
           .then(function (user) {
-            alert('Please check your email...')
+            alert('En återställninslänk har skickats till din Email.')
           }).catch(function (e) {
             console.log(e)
           })
       }
-    
-
+      
     return (
         <View style={styles.container}>
                     <Header headerText="Nordic Dental" click={() => onLogout()} icon="logout" ></Header>
                     <MainView></MainView>
-
         <View style={styles.infoContainer}>
-            <Text>{currentUser.name}</Text>
-            <Text>{currentUser.email}</Text>
-            <ResetButton textInfo="Skicka"
+            <ProfileCard 
+            imageUri={require("../../assets/Alexander.jpg")}
+
+            iconName="account-circle" costumerName={currentUser.name}
+            iconEmail="email-box" costumerEmail={currentUser.email}
+            /> 
+            <HeaderProfile Heading="Byt lösenord?"/>
+            <InfoTextPassword style={styles.paragraph} subHeading={`Here is an other way to 
+             set multiline text.`}/>
+            <ResetButton textInfo="Ändra lösenord"
             click={() => forgotPassword()}
             />
         </View>
@@ -47,8 +55,13 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
 
- 
+        backgroundColor:'white'
     },
+    paragraph: {
+        margin: 24,
+        fontSize: 18,
+        textAlign: 'center',
+      },
     infoContainer: {
         margin: 20
     },

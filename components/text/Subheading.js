@@ -16,12 +16,14 @@ const styles = StyleSheet.create({
     viewContainer:{
         backgroundColor: '#ffffff',
         height:40,
+        
       
     },  
     headingText:{
         textAlign:'center',
         color:'#875195',
         fontSize:20,
+        margin:10
     },
 });
 

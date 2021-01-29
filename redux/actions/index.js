@@ -8,7 +8,7 @@ export function clearData(){
     })
 }
 
-
+//Fetch user from firesstore
 export function fetchUser() {
     return ((dispatch) => {
             firebase.firestore()
@@ -26,6 +26,7 @@ export function fetchUser() {
     })
 }
 
+//Fetch cases from react native
 export function fetchUserPosts() {
     return ((dispatch) => {
             firebase.firestore()
