@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef,useEffect} from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 
 
@@ -8,12 +8,15 @@ import { StyleSheet, TextInput, View } from 'react-native';
 const InputTextField = (props)=> {
     const {viewContainer,textInput} = styles;
 
+    const { inputRef } = props;
+
     return(
         <View style={viewContainer}>
             <TextInput placeholder={props.placeHolder}
-             ref={props.referens} 
              onChangeText={props.changeText}
              style={textInput}
+             ref={ inputRef }
+             onSubmitEditing={props.onSubmit}
              ></TextInput>
         </View>      
     )

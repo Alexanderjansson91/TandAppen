@@ -82,7 +82,7 @@ render() {
       <NavigationContainer>
       <Stack.Navigator initialRouteName="Landing">
         <Stack.Screen name="Landing" component={MainScreenCostumer} 
-        options= {{headerShown:false}}/>
+        options= {{headerShown:false, backButtonTintColor: '#ffffff',}}/>
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Case" component={InfoCaseScreen} options={{headerShown: false}}/>

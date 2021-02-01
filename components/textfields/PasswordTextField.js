@@ -14,6 +14,7 @@ const PasswordTextField = (props)=> {
              onChangeText={props.onChange}
              secureTextEntry={props.secureText}
              style={textInput}
+             
              ></TextInput>
         </View>      
     )

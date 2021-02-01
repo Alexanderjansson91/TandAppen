@@ -36,6 +36,7 @@ export class MainCustomer extends Component {
     
                 options={{
                     tabBarIcon:({color, size}) => (
+                        
                         <MatetrialCommunityIcons name="plus-box" color={color} size={26}/>
                     ),
                 }} />

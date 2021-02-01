@@ -57,6 +57,7 @@ export default function NewCase({ navigation }) {
     return <Text>No access to camera</Text>;
   }
 
+
   return (
 
     <View style={styles.container}>
@@ -99,15 +100,13 @@ export default function NewCase({ navigation }) {
           returnButton="Ta om"
           onClose={() => setModalOpen(false)}
           costumerImage={{ uri: image }}
-          nextPage={() => navigation.navigate('SaveCase', { image })}
-          nextPageText="Välj"
+          nextPage={ () => navigation.navigate('SaveCase', { image }, setModalOpen(false) ) } 
+          nextPageText="Välj"   
         />
+
       </Modal>
-
     </View>
-
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -134,7 +133,7 @@ const styles = StyleSheet.create({
     flex:1.2,
   },
   exampleButton:{
-    margin:30
+    margin:10
   }
 
 

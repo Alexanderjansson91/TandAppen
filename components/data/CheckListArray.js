@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { color } from 'react-native-reanimated';
 import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
@@ -21,10 +22,13 @@ const CheckListArray = (props) => {
    
     //const [,, { item }] = array.fill(setNewColor()); 
 
-     const [,, { item }] = array; 
+      const [,,, { item }] = array; 
+
+      console.log(item);
 
      const setNewColor = () => {
-     <Text style={{ color: 'red' }}>{item}</Text>
+
+      const [,,, { item }] = array; 
         return item
     }
 
@@ -39,7 +43,6 @@ function setNewColorasd(){
   }
 
 
-
     return (
         <View style={viewContainer}>
           <FlatList style={styles.checkFlatList}
@@ -47,7 +50,8 @@ function setNewColorasd(){
           renderItem={({ item }) => 
               <Text style={styles.flatListText}>
               {array[item].icon}{array[item].item}
-              {setNewColor()}
+              {(item[3])}
+              
               </Text>}
           />
         </View>
@@ -62,18 +66,24 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
         height:400,
     },
-    checkFlatList:{
-        
+    checkFlatList:{   
         alignSelf:'center',
-        
         alignContent:'center',
-        marginTop:30,
+        marginTop:0,
+    },
+    textTrue: {
+      color: 'white'
+    },
+    textFalse: {
+      color: 'green'
     },
     flatListText: {
-        margin:20,
-        
+        margin:20,    
         fontSize:20,
-    }
+    },
+    colorText: {
+      color:"#ffffff"
+    },
 
     
 });

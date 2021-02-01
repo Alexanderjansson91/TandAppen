@@ -15,7 +15,7 @@ const Subheading = (props)=> {
 const styles = StyleSheet.create({
     viewContainer:{
         backgroundColor: '#ffffff',
-        height:40,
+        height:70,
         
       
     },  

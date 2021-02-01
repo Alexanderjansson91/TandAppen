@@ -13,6 +13,7 @@ const EmailTextField = (props)=> {
             <TextInput placeholder={props.placeHolder}
              onChangeText={props.onChange}
              style={textInput}
+             
              ></TextInput>
         </View>      
     )

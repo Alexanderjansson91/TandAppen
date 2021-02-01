@@ -20,6 +20,7 @@ export default function Save(props, {navigation}) {
     const [phone, setPhone] = useState(" ")
     const [message, setMessage] = useState(" ")
 
+    const inputEmail = useRef(null);
 
 
     const uploadImage = async () => {
@@ -68,11 +69,10 @@ export default function Save(props, {navigation}) {
         }))
     }
 
-        const inputEl = useRef();
-        function focus() {
-          inputEl.current.focus();
-        };
-       
+    const inputEl2 = useRef(null);
+    const inputEl3 = useRef(null);
+    const inputEl4 = useRef(null);
+
     return (
        <View style={styles.viewContainer}>
            <Image source= {{uri: props.route.params.image}} ></Image>
@@ -81,23 +81,25 @@ export default function Save(props, {navigation}) {
            <SubHeading subHeading="Lämna dina uppgifter så kontaktar"></SubHeading>
            <SubHeading subHeading="vi dig inom 24 timmar"></SubHeading>
            <TextInputField 
-           referens= {inputEl}
+           onSubmit={() => inputEl2.current.focus()}
            placeHolder="Namn"
            changeText={(name) => setName(name)}
            />
            <TextInputField 
-           referens= {inputEl}
+           onSubmit={() => inputEl3.current.focus()}
+           inputRef={ inputEl2 }
            placeHolder="E-post"
            changeText={(email) => setEmail(email)}
            />
            <TextInputField 
-           referens= {inputEl}
+            onSubmit={() => inputEl4.current.focus()}
+            inputRef={ inputEl3 }
            placeHolder="Telefon"
            changeText={(phone) => setPhone(phone)}
            />
            <TextInputField 
-           referens= {inputEl}
            placeHolder="Meddelande"
+           inputRef={ inputEl4 }
            changeText={(message) => setMessage(message)}
            />
 
