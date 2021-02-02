@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button, Image, Modal, Alert, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
-import ImageModal from '../../components/style/ImageModal'
+import ImageModal from '../../components/views/ImageModal'
+import ExampleModal from '../../components/views/ExampleModal'
 import CameraButton from '../../components/buttons/CameraButtons'
 import HeadingTitle from '../../components/text/HeadingText'
 import SubTitle from '../../components/text/Subheading'
@@ -16,6 +17,7 @@ export default function NewCase({ navigation }) {
   const [image, setImage] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalExampleOpen, setExampleModalOpen] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -89,10 +91,12 @@ export default function NewCase({ navigation }) {
 
       </View>
       <View style={styles.infoContainer}>
+      <View style={styles.HeadlineText}>
       <HeadingTitle Heading="Bild framifrån"/>
+      </View>
       <SubTitle subHeading="Är du osäker?"/>
       <View style={styles.exampleButton}>
-      <ExampleButton textInfo="Se exempel"/>
+      <ExampleButton textInfo="Se exempel" click={() => setExampleModalOpen(true)}/>
       </View>
       </View>
       <Modal visible={modalOpen} animationType='slide' >
@@ -103,7 +107,13 @@ export default function NewCase({ navigation }) {
           nextPage={ () => navigation.navigate('SaveCase', { image }, setModalOpen(false) ) } 
           nextPageText="Välj"   
         />
-
+      </Modal>
+      <Modal visible={modalExampleOpen} animationType='slide' >
+        <ExampleModal
+          closeExampleButton="Stäng"
+          onClose={() => setExampleModalOpen(false)}
+          exampleImage={require("../../assets/Alexander.jpg")} 
+        />
       </Modal>
     </View>
   );
@@ -115,6 +125,10 @@ const styles = StyleSheet.create({
     backgroundColor:"#ffffff",
     flex:1,
 
+  },
+
+  HeadlineText:{
+    marginBottom:"0%",
   },
 
   cameraContainer: {

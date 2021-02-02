@@ -2,8 +2,8 @@ import React, { useRef } from 'react'
 
 import {View,StyleSheet,ScrollView, TextInput,Button} from 'react-native'
 
-import Header from '../../components/style/Header'
-import MainView from '../../components/style/MainView'
+import Header from '../../components/views/Header'
+import MainView from '../../components/views/MainView'
 import CheckList from '../../components/data/CheckListArray'
 import Heading from '../../components/text/HeadingText'
 import SubHeading from '../../components/text/Subheading'

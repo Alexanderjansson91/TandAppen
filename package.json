@@ -30,7 +30,8 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "expo-camera": "~9.1.0",
-    "expo-image-picker": "~9.2.0"
+    "expo-image-picker": "~9.2.0",
+    "expo-mail-composer": "~9.0.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"

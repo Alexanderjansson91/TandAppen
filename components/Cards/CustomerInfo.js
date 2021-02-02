@@ -28,6 +28,10 @@ const CustomerInfo = (props)=> {
                 <MatetrialCommunityIcons name={props.iconMessage} color="black" size={26}/> 
                 <Text style={infoText}>{props.costumerMessage}</Text>    
                 </View>
+                <View style={styles.parent}>
+                <MatetrialCommunityIcons name={props.iconYear} color="black" size={26}/> 
+                <Text style={infoText}>{props.costumerYear}</Text>    
+                </View>
         </View>      
     )
 }

@@ -8,9 +8,9 @@ import InfoText from '../../components/text/Subheading'
 const ImageModal = ({ modalOpen, onClose, returnButton, costumerImage, nextPage, nextPageText }) => {
   const { container, modalToggle, modalClose, imageStyle } = styles;
   return (
-    <Modal visible={modalOpen} animationType='slide'>
+    <Modal  visible={modalOpen}  animationType='slide'>
       <View style={container}>
-      <View style={styles.parent}>     
+      <View style={styles.parent}>   
            {/* Button number 1*/}
           <TouchableOpacity style={styles.returnButtonView} onPress={onClose} >
             <View >
@@ -44,7 +44,7 @@ export default ImageModal;
 
 const styles = StyleSheet.create({
   container: {
-    height:"70%",
+    height:"75%",
     width:"100%",
     alignContent:'center',
     alignSelf:'center',
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     flexDirection:"row",
   },
   space: {
-   marginBottom:30,
+   marginBottom:0,
   },
   nextPageButtonView: {
     fontSize:20,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     right: 0
   },
   imageView:{
-    marginBottom:-70
+    marginBottom:-50
   },
   parent: {
     flex: 1,

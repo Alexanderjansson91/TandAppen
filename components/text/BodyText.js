@@ -2,11 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 //My header View
-const HeadingText = (props)=> {
+const Subheading = (props)=> {
     const {viewContainer,headingText} = styles;
     return(
         <View style={viewContainer}>
-                <Text style={headingText}>{props.Heading}</Text>        
+
+                <Text style={headingText}>{props.bodyText}</Text>        
         </View>      
     )
 }
@@ -15,16 +16,17 @@ const HeadingText = (props)=> {
 const styles = StyleSheet.create({
     viewContainer:{
         backgroundColor: '#ffffff',
-        height:60,
-        marginLeft:"5%",
-        marginRight:"5%",
+        height:"60%",
+        
+      
     },  
     headingText:{
-        textAlign:'center',
-        fontWeight:"600",
+        marginLeft:20,
+        marginRight:20,
         color:'#875195',
-        fontSize:23,
+        fontSize:20,
+        margin:10
     },
 });
 
-export default HeadingText;
+export default Subheading;

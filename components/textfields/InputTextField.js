@@ -1,5 +1,5 @@
 import React, {useRef,useEffect} from 'react';
-import { StyleSheet, TextInput, View } from 'react-native';
+import { StyleSheet, TextInput, View,KeyboardAvoidingView } from 'react-native';
 
 
 
@@ -11,6 +11,8 @@ const InputTextField = (props)=> {
     const { inputRef } = props;
 
     return(
+    
+        <KeyboardAvoidingView>
         <View style={viewContainer}>
             <TextInput placeholder={props.placeHolder}
              onChangeText={props.changeText}
@@ -19,6 +21,8 @@ const InputTextField = (props)=> {
              onSubmitEditing={props.onSubmit}
              ></TextInput>
         </View>      
+        </KeyboardAvoidingView>
+
     )
 }
 

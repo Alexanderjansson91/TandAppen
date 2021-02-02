@@ -1,10 +1,12 @@
 import React, {useState, useRef, useReducer} from 'react'
-import { StyleSheet, Text, View, Button, Image, TextInput } from 'react-native';
+import { StyleSheet, View, Image, Text } from 'react-native';
 
 import TextInputField from '../../components/textfields/InputTextField'
 import SubmitButton from '../../components/buttons/PageButton'
 import Heading from '../../components/text/HeadingText'
 import SubHeading from '../../components/text/Subheading'
+import CounterCard from '../../components/Cards/Counter'
+
 
 import firebase from 'firebase'
 import { NavigationContainer } from '@react-navigation/native';
@@ -20,7 +22,17 @@ export default function Save(props, {navigation}) {
     const [phone, setPhone] = useState(" ")
     const [message, setMessage] = useState(" ")
 
-    const inputEmail = useRef(null);
+    const initialState = 0;
+    const reducer = (state, action) => {
+        switch (action) {
+            case 'increment': return state + 1;
+            case 'decrement': return state - 1;
+            case 'reset': return 0;
+        default: throw new Error('Unexpected action');
+    }
+};
+
+const [count, dispatch] = useReducer(reducer, initialState);
 
 
     const uploadImage = async () => {
@@ -63,6 +75,7 @@ export default function Save(props, {navigation}) {
             email,
             phone,
             message,
+            count,
             creation: firebase.firestore.FieldValue.serverTimestamp()
         }).then((function () {
             props.navigation.popToTop()
@@ -74,6 +87,7 @@ export default function Save(props, {navigation}) {
     const inputEl4 = useRef(null);
 
     return (
+        
        <View style={styles.viewContainer}>
            <Image source= {{uri: props.route.params.image}} ></Image>
            <View style={styles.space}></View>
@@ -103,12 +117,26 @@ export default function Save(props, {navigation}) {
            changeText={(message) => setMessage(message)}
            />
 
+
+            <SubHeading subHeading="När var du oss tandläkaren senast?"></SubHeading>
+
+            <CounterCard 
+            counterMinusClick ={() => dispatch('decrement')}
+            iconMinus='minus-circle'
+            counterPlusClick={() => dispatch('increment')}
+            iconPlus='plus-circle'
+            yearText=" år"
+            numberOfYearText={count}
+            changeText={(count) => dispatch(count)}
+            />
+
            <View style={styles.space}></View>
            <SubmitButton
            textInfo="Skicka"
            click={() => uploadImage()}
            />
-      
+   
+
        </View>
     )
 }
