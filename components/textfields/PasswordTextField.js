@@ -4,7 +4,7 @@ import { StyleSheet, TextInput, View } from 'react-native';
 
 
 
-//My header View
+//Password Textfield
 const PasswordTextField = (props)=> {
     const {viewContainer,textInput} = styles;
 
@@ -20,7 +20,7 @@ const PasswordTextField = (props)=> {
     )
 }
 
-//Styles for my header
+//Style for textfield
 const styles = StyleSheet.create({
     viewContainer:{
         backgroundColor: '#ffffff',

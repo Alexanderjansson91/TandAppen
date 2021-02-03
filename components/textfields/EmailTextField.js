@@ -4,7 +4,7 @@ import { StyleSheet, TextInput, View } from 'react-native';
 
 
 
-//My header View
+//Email Textfield
 const EmailTextField = (props)=> {
     const {viewContainer,textInput} = styles;
 
@@ -12,14 +12,13 @@ const EmailTextField = (props)=> {
         <View style={viewContainer}>
             <TextInput placeholder={props.placeHolder}
              onChangeText={props.onChange}
-             style={textInput}
-             
+             style={textInput}     
              ></TextInput>
         </View>      
     )
 }
 
-//Styles for my header
+//Styles for Email Textfield
 const styles = StyleSheet.create({
     viewContainer:{
         backgroundColor: '#ffffff',

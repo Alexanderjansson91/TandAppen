@@ -6,7 +6,7 @@ import SubmitButton from '../../components/buttons/PageButton'
 import Heading from '../../components/text/HeadingText'
 import SubHeading from '../../components/text/Subheading'
 import CounterCard from '../../components/Cards/Counter'
-
+import UploadLoader from '../../components/buttons/UploadButton'
 
 import firebase from 'firebase'
 import { NavigationContainer } from '@react-navigation/native';
@@ -91,9 +91,9 @@ const [count, dispatch] = useReducer(reducer, initialState);
        <View style={styles.viewContainer}>
            <Image source= {{uri: props.route.params.image}} ></Image>
            <View style={styles.space}></View>
-           <Heading Heading="Kontaktuppgifter"></Heading>
-           <SubHeading subHeading="Lämna dina uppgifter så kontaktar"></SubHeading>
-           <SubHeading subHeading="vi dig inom 24 timmar"></SubHeading>
+ 
+           <SubHeading subHeading="Fyll i dina uppgifter nedan, så kontaktar vi dig inom 24 timmar."></SubHeading>
+           <View style={styles.space}></View>
            <TextInputField 
            onSubmit={() => inputEl2.current.focus()}
            placeHolder="Namn"
@@ -117,6 +117,7 @@ const [count, dispatch] = useReducer(reducer, initialState);
            changeText={(message) => setMessage(message)}
            />
 
+<View style={styles.space}></View>
 
             <SubHeading subHeading="När var du oss tandläkaren senast?"></SubHeading>
 
@@ -130,12 +131,12 @@ const [count, dispatch] = useReducer(reducer, initialState);
             changeText={(count) => dispatch(count)}
             />
 
-           <View style={styles.space}></View>
-           <SubmitButton
-           textInfo="Skicka"
-           click={() => uploadImage()}
-           />
-   
+           
+            <UploadLoader 
+            uploadClick= {() => uploadImage()}
+            submitText="Skicka"
+            icon="send"
+            />
 
        </View>
     )

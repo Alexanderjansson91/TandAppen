@@ -3,13 +3,14 @@ import { StyleSheet, Text, View,Image } from 'react-native';
 import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
-//My header View
+//Card how display the info from the costumer
 const CustomerInfo = (props)=> {
     const {viewContainer,infoText,space,parent} = styles;
     return(
         <View style={viewContainer}>
             <View style={styles.space}></View>
                 
+                {/* Image and Textfields how print the info */}
                  <Image style={styles.image}  source={props.ImageCustomer}/>  
                  <View style={styles.space}></View> 
                  <View style={styles.parent}>

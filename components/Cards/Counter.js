@@ -3,21 +3,21 @@ import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native';
 import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
-//My header View
+//My counter card
 const Counter = (props)=> {
     const {viewContainer,infoText,space,parent,welcomeNameUser,container} = styles;
     return (
         
             <View style={container}>
       <View style={styles.parent}>    
-
+        {/* Minus button */}
         <TouchableOpacity style={styles.profilContainer} onPress={props.counterMinusClick}>
                     <View style={styles.buttonView}>
                         <Text style={styles.textButton}>{props.minusText}</Text>
                         <MatetrialCommunityIcons name={props.iconMinus} color="#875195" size={26} />
                     </View>
         </TouchableOpacity>
-
+        {/* Plus button */}
         <TouchableOpacity style={styles.profilContainer} onPress={props.counterPlusClick}>
                     <View style={styles.buttonView}>
                         <Text  style={styles.textButton}>{props.plusText}</Text>
@@ -25,7 +25,7 @@ const Counter = (props)=> {
                     </View>
         </TouchableOpacity>
 
-        
+        {/* The counter response TextFields */}
          <Text onChangeText={props.changeText}
          style={styles.responseCounterNumber}>{props.numberOfYearText}
          </Text> 
@@ -45,11 +45,11 @@ const styles = StyleSheet.create({
     },
     responseCounterText:{
         alignItems: 'center',
-        
         alignSelf: 'center',
         color: '#875195',
         fontWeight: '500',
         fontSize: 25,
+        
     },
     responseCounterNumber:{
         alignItems: 'center',
@@ -61,8 +61,6 @@ const styles = StyleSheet.create({
     },
 
     profilContainer: {
-        
-        
         width: 60,
         flexDirection: 'row',
         justifyContent: 'center',
@@ -71,8 +69,6 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         textAlign:'center',
         borderColor: 'white',
-
-
     },
 
     buttonView:{

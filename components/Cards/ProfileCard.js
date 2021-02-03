@@ -3,13 +3,12 @@ import { StyleSheet, Text, View,Image } from 'react-native';
 import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
-//My header View
+//Profile card 
 const ProfileCard = (props)=> {
     const {viewContainer,infoText,space,parent,welcomeNameUser} = styles;
     return(
         <View style={viewContainer}>
             <View style={styles.space}></View>   
-              
                  <View style={styles.space}></View> 
                  <View style={styles.parent}>
                 <MatetrialCommunityIcons name={props.iconName} color="black" size={26}/> 

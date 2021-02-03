@@ -9,14 +9,12 @@ import { fetchUser, fetchUserPosts, clearData } from '../redux/actions/index'
 
 import FeedScreen from '../screens/main/Feed'
 import ProfileScreen from '../screens/main/Profile'
-
 import { event } from 'react-native-reanimated';
-
 
 const Tab = createMaterialBottomTabNavigator();
 
 const EmptyScreen = () => {
-    return(null)
+    return (null)
 }
 
 export class Main extends Component {
@@ -30,18 +28,18 @@ export class Main extends Component {
             <Tab.Navigator initialRouteName="Feed" labeled={false} barStyle={{ backgroundColor: '#875195' }}>
 
                 <Tab.Screen name="Feed" component={FeedScreen}
-                options={{
-                    tabBarIcon:({color, size}) => (
-                        <MatetrialCommunityIcons name="home" color={color} size={26}/>
-                    ),
-                }} />
-             
+                    options={{
+                        tabBarIcon: ({ color, size }) => (
+                            <MatetrialCommunityIcons name="home" color={color} size={26} />
+                        ),
+                    }} />
+
                 <Tab.Screen name="Profile" component={ProfileScreen}
-                options={{
-                    tabBarIcon:({color, size}) => (
-                        <MatetrialCommunityIcons name="account-circle" color={color} size={26}/>
-                    ),
-                }} />
+                    options={{
+                        tabBarIcon: ({ color, size }) => (
+                            <MatetrialCommunityIcons name="account-circle" color={color} size={26} />
+                        ),
+                    }} />
             </Tab.Navigator>
         )
     }

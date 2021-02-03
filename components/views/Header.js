@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
-//My header View
+//Header View
 const Header = (props) => {
     const { logoContainer, viewContainer, profilContainer, parent } = styles;
     return (
@@ -24,7 +24,7 @@ const Header = (props) => {
 
 
 
-//Styles for my header
+//Style for header
 const styles = StyleSheet.create({
     viewContainer:{
         backgroundColor: '#875195',

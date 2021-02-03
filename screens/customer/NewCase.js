@@ -110,9 +110,9 @@ export default function NewCase({ navigation }) {
       </Modal>
       <Modal visible={modalExampleOpen} animationType='slide' >
         <ExampleModal
-          closeExampleButton="Stäng"
+          icon="close-circle"
           onClose={() => setExampleModalOpen(false)}
-          exampleImage={require("../../assets/Alexander.jpg")} 
+          exampleImage={require("../../assets/teeth.jpg")} 
         />
       </Modal>
     </View>

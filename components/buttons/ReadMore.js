@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 
-//My header View
+//My read more button
 const PageButton = (props) => {
     const { logoContainer, viewContainer, profilContainer, parent } = styles;
     return (

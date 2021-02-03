@@ -34,7 +34,10 @@
     "expo-mail-composer": "~9.0.0"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0"
+    "@babel/core": "~7.9.0",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "eslint": "^7.19.0",
+    "eslint-plugin-react": "^7.22.0"
   },
   "private": true
 }

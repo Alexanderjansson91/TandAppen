@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-//My header View
+//View whit the rounded corner under the Header
 const MainView = (props)=> {
     const {container} = styles;
     return(
@@ -11,7 +11,7 @@ const MainView = (props)=> {
     )
 }
 
-//Styles for my header
+//Style for the view
 const styles = StyleSheet.create({
     container: {
         backgroundColor:'white',

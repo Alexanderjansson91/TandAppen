@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-//My header View
+//subheading text that I use in the app
 const Subheading = (props)=> {
     const {viewContainer,headingText} = styles;
     return(
@@ -11,7 +11,7 @@ const Subheading = (props)=> {
     )
 }
 
-//Styles for my header
+//Styles for my subheading text
 const styles = StyleSheet.create({
     viewContainer:{
         backgroundColor: '#ffffff',

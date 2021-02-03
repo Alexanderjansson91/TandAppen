@@ -4,14 +4,12 @@ import { StyleSheet, TextInput, View,KeyboardAvoidingView } from 'react-native';
 
 
 
-//My header View
+//Input textfield for the cosumnter info page (SavePage)
 const InputTextField = (props)=> {
     const {viewContainer,textInput} = styles;
 
     const { inputRef } = props;
-
     return(
-    
         <KeyboardAvoidingView>
         <View style={viewContainer}>
             <TextInput placeholder={props.placeHolder}
@@ -26,7 +24,7 @@ const InputTextField = (props)=> {
     )
 }
 
-//Styles for my header
+//Style for textfeilds
 const styles = StyleSheet.create({
     viewContainer:{
         backgroundColor: '#ffffff',

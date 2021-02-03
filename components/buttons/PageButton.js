@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
-//My header View
+//My button how I use a standard in my website
 const PageButton = (props) => {
     const { logoContainer, viewContainer, profilContainer, parent } = styles;
     return (

@@ -7,6 +7,7 @@ import ContactButton from '../../components//buttons/PageButton'
 import * as MailComposer from 'expo-mail-composer';
 import {View,Text,StyleSheet, Linking} from 'react-native'
 
+//About the App View
 export default function Feed({navigation}) {
     return (
        <View style={styles.topContainer}>
@@ -22,9 +23,8 @@ export default function Feed({navigation}) {
              ullamco laboris nisi ut aliquip ex ea commodo 
              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
              dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-             " 
-             />
+              sunt in culpa qui officia deserunt mollit anim id est laborum."/>
+
             <ContactButton textInfo="Kontakta oss " icon="email" click={() => Linking.openURL('mailto:alexander_jansson_91@hotmail.com') }
      />
        </View>
