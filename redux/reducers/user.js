@@ -1,11 +1,15 @@
-import { USER_STATE_CHANGE, USER_POSTS_STATE_CHANGE, CLEAR_DATA } from "../constants";
+import {
+  USER_STATE_CHANGE,
+  USER_POSTS_STATE_CHANGE,
+  CLEAR_DATA,
+} from '../constants';
 
 const initialState = {
   currentUser: null,
   posts: [],
 };
 
-//Updates the states what get from our action
+//Updates the states what get from the action
 export const user = (state = initialState, action) => {
   switch (action.type) {
     case USER_STATE_CHANGE:

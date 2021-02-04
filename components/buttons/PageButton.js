@@ -26,6 +26,7 @@ const PageButton = (props) => {
 const styles = StyleSheet.create({
     viewContainer: {
         flex: 1,
+        marginBottom: 30,
     },
 
     profilContainer: {

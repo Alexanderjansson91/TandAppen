@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignContent: 'center',
     alignSelf: 'center',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   textButtons: {
     color: '#875195',
@@ -52,18 +52,18 @@ const styles = StyleSheet.create({
     color: "#ffffff",
   },
   iconStyles:{
-    marginRight:10,
-    right:0,
-    position:'absolute',
-    color:"#875195",
-    fontSize:25,
-    marginTop:'1%'
-    },
+    marginRight: 10,
+    right: 0,
+    position: 'absolute',
+    color: "#875195",
+    fontSize: 25,
+    marginTop: '1%'
+  },
   imageView: {
     flex: 1,
   },
   image: {
-    height: "80%",
-    aspectRatio: 1/1
+    height: '80%',
+    aspectRatio: 1/1,
   },
 })
