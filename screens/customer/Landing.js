@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Linking } from 'react-native';
 import Header from '../../components/views/Header';
 import MainView from '../../components/views/MainView';
 import NewCaseButton from '../../components/buttons/PageButton';
 import HeadlineLanding from '../../components/text/HeadingText';
 import ReadmoreLanding from '../../components/buttons/ReadMore';
 
+//The first page you see (HomeScreen)
 export default function Landing({ navigation }) {
   return (
     <View style={styles.Container}>
@@ -19,9 +20,24 @@ export default function Landing({ navigation }) {
       </View>
       <View style={styles.insideContainer}>
         <HeadlineLanding Heading="En enkel och personlig bedömning av invisalign" />
-        <ReadmoreLanding textButton="Läs mer" />
+        <ReadmoreLanding
+          click={() => navigation.navigate('About')}
+          textButton="Läs mer"
+        />
+        <HeadlineLanding Heading="Vad är invisalign? Läs mer på deras hemsida" />
+        <ReadmoreLanding
+          click={() => {
+            Linking.openURL('https://www.invisalign.se');
+          }}
+          textButton="Läs mer"
+        />
         <HeadlineLanding Heading="Behöver du hjälp med finansieringen?" />
-        <ReadmoreLanding textButton="Läs mer" />
+        <ReadmoreLanding
+          click={() => {
+            Linking.openURL('https://www.invisalign.se');
+          }}
+          textButton="Läs mer"
+        />
         <NewCaseButton
           textInfo="Nytt ärende"
           icon="plus"
@@ -32,6 +48,7 @@ export default function Landing({ navigation }) {
   );
 }
 
+//Style for screen
 const styles = StyleSheet.create({
   Container: {
     backgroundColor: '#ffffff',

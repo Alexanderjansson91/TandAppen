@@ -16,6 +16,7 @@ export default function Save(props) {
   const [phone, setPhone] = useState(' ');
   const [message, setMessage] = useState(' ');
 
+  //Counter function
   const initialState = 0;
   const reducer = (state, action) => {
     switch (action) {
@@ -31,6 +32,7 @@ export default function Save(props) {
   };
 
   const [count, dispatch] = useReducer(reducer, initialState);
+  //Upload the image to Firebase storage
   const uploadImage = async () => {
     const uri = props.route.params.image;
     const childPath = (`post/${Math.random().toString(36)}`);
@@ -55,6 +57,8 @@ export default function Save(props) {
     };
     task.on('state_changed', taskProgress, taskError, taskCompleted);
   };
+
+  //Save the new post to the firestore
   const savePostData = (downloadURL) => {
     firebase
       .firestore()
@@ -69,71 +73,75 @@ export default function Save(props) {
         message,
         count,
         creation: firebase.firestore.FieldValue.serverTimestamp(),
-       }).then((function () {
+      }).then((function () {
         props.navigation.popToTop();
-      }
-   ));
-};
+      }));
+  };
+
+
   const inputEl2 = useRef(null);
   const inputEl3 = useRef(null);
   const inputEl4 = useRef(null);
   return (
+    //Move textfield if keyboard appers
     <KeyboardAvoidingView
-    behavior={Platform.OS === "ios" ? "padding" : "height"}
-    style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
     >
-    <View style={styles.viewContainer}>
-      <Image source={{ uri: props.route.params.image }} />
-      <View style={styles.space} />
-      <View style={styles.paddingHeader}>
-      <SubHeading subHeading="Fyll i dina uppgifter nedan, så kontaktar vi dig inom 24 timmar." />
+      <View style={styles.viewContainer}>
+        <Image source={{ uri: props.route.params.image }} />
+        <View style={styles.space} />
+        <View style={styles.paddingHeader}>
+          <SubHeading subHeading="Fyll i dina uppgifter nedan, så kontaktar vi dig inom 24 timmar." />
+        </View>
+        <View style={styles.space} />
+        <TextInputField
+          onSubmit={() => inputEl2.current.focus()}
+          placeHolder="Namn"
+          changeText={(name) => setName(name)}
+        />
+        <TextInputField
+          onSubmit={() => inputEl3.current.focus()}
+          inputRef={inputEl2}
+          placeHolder="E-post"
+          changeText={(email) => setEmail(email)}
+        />
+        <TextInputField
+          onSubmit={() => inputEl4.current.focus()}
+          inputRef={inputEl3}
+          placeHolder="Telefon"
+          changeText={(phone) => setPhone(phone)}
+        />
+        <TextInputField
+          placeHolder="Meddelande"
+          inputRef={inputEl4}
+          changeText={(message) => setMessage(message)}
+        />
+        <View style={styles.space} />
+        <SubHeading subHeading="När var du oss tandläkaren senast?" />
+        <CounterCard
+          counterMinusClick={() => dispatch('decrement')}
+          iconMinus="minus-circle"
+          counterPlusClick={() => dispatch('increment')}
+          iconPlus="plus-circle"
+          yearText=" år"
+          numberOfYearText={count}
+          changeText={(count) => dispatch(count)}
+        />
+        {/* button how Upload the case to firebase */}
+        <UploadLoader
+          uploadClick={() => uploadImage()}
+          submitText="Skicka"
+          icon="send"
+        />
       </View>
-      <View style={styles.space} />
-      <TextInputField
-        onSubmit={() => inputEl2.current.focus()}
-        placeHolder="Namn"
-        changeText={(name) => setName(name)}
-      />
-      <TextInputField
-        onSubmit={() => inputEl3.current.focus()}
-        inputRef={inputEl2}
-        placeHolder="E-post"
-        changeText={(email) => setEmail(email)}
-      />
-      <TextInputField
-        onSubmit={() => inputEl4.current.focus()}
-        inputRef={inputEl3}
-        placeHolder="Telefon"
-        changeText={(phone) => setPhone(phone)}
-      />
-      <TextInputField 
-        placeHolder="Meddelande"
-        inputRef={inputEl4}
-        changeText={(message) => setMessage(message)}
-      />
-      <View style={styles.space} />
-      <SubHeading subHeading="När var du oss tandläkaren senast?" />
-      <CounterCard
-        counterMinusClick={() => dispatch('decrement')}
-        iconMinus="minus-circle"
-        counterPlusClick={() => dispatch('increment')}
-        iconPlus="plus-circle"
-        yearText=" år"
-        numberOfYearText={count}
-        changeText={(count) => dispatch(count)}
-      />
-      <UploadLoader
-        uploadClick={() => uploadImage()}
-        submitText="Skicka"
-        icon="send"
-      />
-    </View>
-</KeyboardAvoidingView>
+    </KeyboardAvoidingView>
   );
 }
 
+//Style for the view
 const styles = StyleSheet.create({
-  paddingHeader:{
+  paddingHeader: {
     marginLeft: 30,
     marginTop: 25,
     marginRight: 30,
@@ -143,13 +151,13 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
   },
-  borderstyleesdasd:{
+  borderstyleesdasd: {
     borderStyle: 'solid',
     borderWidth: 1,
     borderRadius: 10,
     borderColor: 'black',
   },
   space: {
- marginTop:40
+    marginTop: 40
   },
 });

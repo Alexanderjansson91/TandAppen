@@ -14,15 +14,19 @@ function Profile(props) {
   const { currentUser, posts } = props;
   console.log({ currentUser, posts });
 
+  //Hook how clean up
   useEffect(() => {
     return () => {
       console.log('cleaned up');
     };
   }, []);
 
+  //Log out current uer
   const onLogout = () => {
     firebase.auth().signOut();
   };
+
+  //Reset password for currentUser adn display an alert
   const forgotPassword = () => {
     var user = firebase.auth().currentUser.email;
     firebase
@@ -35,6 +39,8 @@ function Profile(props) {
         console.log(e);
       });
   };
+
+  //A view that shows the profile
   return (
     <View style={styles.container}>
       <Header
@@ -53,12 +59,13 @@ function Profile(props) {
         />
         <HeaderProfile Heading="Ändra lösenord?" />
         <InfoTextPassword
-          subHeading={'Vi rekommenderar att byta lösenord 4 gånger per år.'}
+          subHeading={'Vi rekommenderar att byta lösenord fyra gånger per år.'}
         />
         <View style={styles.spaceBetween}>
           <ResetButton
             textInfo="Ändra lösenord"
             click={() => forgotPassword()}
+            icon="key"
           />
         </View>
       </View>
@@ -66,6 +73,7 @@ function Profile(props) {
   );
 }
 
+//Style for the screen
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Linking } from 'react-native';
 
 import EmailInputField from '../../components/textfields/EmailTextField';
 import PasswordInputField from '../../components/textfields/PasswordTextField';
+import ContactCompany from '../../components/Cards/ContactCard'
 
 import SignInButton from '../../components/buttons/PageButton';
 import SubHeading from '../../components/text/Subheading';
@@ -49,6 +50,13 @@ export class Login extends Component {
         />
         <View style={styles.space} />
         <SignInButton click={() => this.onSignIn()} textInfo="Logga in" />
+        <ContactCompany
+          readMoreText="Vill ditt företag ha en liknande App?"
+          textInfo="Kontakt"
+          click={() =>
+            Linking.openURL('mailto:alexander_jansson_91@hotmail.com')
+          }
+        />
       </View>
     );
   }

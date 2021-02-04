@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, FlatList, Button } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import firebase from 'firebase';
 require('firebase/firestore');
 import { connect } from 'react-redux';
@@ -11,27 +11,19 @@ function Feed(props) {
   const { currentUser, posts } = props;
   console.log({ currentUser, posts });
 
+  //Hook for clean up
   useEffect(() => {
     return () => {
       console.log('cleaned up');
     };
   }, []);
 
+  //Log out current uer
   const onLogout = () => {
     firebase.auth().signOut();
   };
-  const deleteData = () => {
-    firebase
-      .firestore()
-      .collection('posts')
-      .doc('newpost')
-      .collection('userPosts')
-      .delete()
-      .then(() => {
-        console.log('User deleted!');
-      });
-  };
 
+  //A view that shows all cases
   return (
     <View style={styles.container}>
       <Header
@@ -41,6 +33,7 @@ function Feed(props) {
       />
       <MainView />
       <View style={styles.containerGallery}>
+        {/* All item displays in an Flatlist */}
         <FlatList
           horizontal={false}
           data={posts}
@@ -62,11 +55,13 @@ function Feed(props) {
             </View>
           )}
         />
+        <View style={styles.space} />
       </View>
     </View>
   );
 }
 
+//Style for the screen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -78,6 +73,9 @@ const styles = StyleSheet.create({
   containerGallery: {
     margin: 20,
     justifyContent: 'center',
+  },
+  space: {
+    marginBottom: '100%',
   },
   image: {
     flex: 1,

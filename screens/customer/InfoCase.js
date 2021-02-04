@@ -11,32 +11,32 @@ import SubHeading from '../../components/text/Subheading';
 import ButtonNav from '../../components/buttons/PageButton';
 
 export default function InfoCase({ navigation }) {
+  //Ignore a log how not hould displayed
   useEffect(() => {
     LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
   }, []);
 
+  //View for information about a new case
   return (
-    
-      <View style={styles.topContainer}>
-        <Header
-          headerText="Nordic Dental"
-          click={() => navigation.navigate('Login')}
-          icon="account-circle"
-        />
-        <MainView />
-        <ScrollView style={styles.topContainer}>
+    <View style={styles.topContainer}>
+      <Header
+        headerText="Nordic Dental"
+        click={() => navigation.navigate('Login')}
+        icon="account-circle"
+      />
+      <MainView />
+      <ScrollView style={styles.topContainer}>
         <Heading Heading="Nytt ärende" />
         <SubHeading subHeading="Tänk på följande vid Fotograferingen." />
         <CheckList />
         <ButtonNav
-          textInfo="Starta"
+          textInfo="Starta ärende"
           icon="plus"
           textButton="Läs mer"
           click={() => navigation.navigate('NewCase')}
         />
-        </ScrollView>
-      </View>
-    
+      </ScrollView>
+    </View>
   );
 }
 

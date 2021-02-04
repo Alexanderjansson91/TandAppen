@@ -18,6 +18,7 @@ export default function NewCase({ navigation }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalExampleOpen, setExampleModalOpen] = useState(false);
 
+  //Hooks for my camera
   useEffect(() => {
     (async () => {
       const cameraStatus = await Camera.requestPermissionsAsync();
@@ -28,6 +29,7 @@ export default function NewCase({ navigation }) {
     })();
   }, []);
 
+  //Function for take an Image
   const takePicture = async () => {
     if (camera) {
       const data = await camera.takePictureAsync(null);
@@ -35,6 +37,7 @@ export default function NewCase({ navigation }) {
     }
   };
 
+  //Function for pick an Image from the gallery
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -46,9 +49,11 @@ export default function NewCase({ navigation }) {
     console.log(result);
     if (!result.cancelled) {
       setImage(result.uri);
+      setModalOpen(true);
     }
   };
 
+  //Check if you have permission to the camera
   if (hasCameraPermission === null || hasGalleryPermission === false) {
     return <View />;
   }
@@ -56,9 +61,11 @@ export default function NewCase({ navigation }) {
     return <Text>No access to camera</Text>;
   }
 
+  //View for newcase
   return (
     <View style={styles.container}>
       <View style={styles.cameraContainer}>
+        {/* Camera view */}
         <Camera
           style={styles.fixedRatio}
           type={type}
@@ -80,8 +87,9 @@ export default function NewCase({ navigation }) {
         <CameraButton
           icon="camera"
           click={() => { { takePicture() }; { setModalOpen(true) } }} />
-        <CameraButton icon="camera-image" click={() => { {pickImage()}; { navigation.navigate('SaveCase', { image })}}} />
+        <CameraButton icon="camera-image" click={() => pickImage()} />
       </View>
+      {/* Info content */}
       <View style={styles.infoContainer}>
         <View style={styles.HeadlineText}>
           <HeadingTitle Heading="Bild framifrån" />
@@ -90,10 +98,12 @@ export default function NewCase({ navigation }) {
         <View style={styles.exampleButton}>
           <ExampleButton
             textInfo="Se exempel"
+            icon="eye"
             click={() => setExampleModalOpen(true)}
           />
         </View>
       </View>
+      {/* Model how willdisplay after take an Image */}
       <Modal visible={modalOpen} animationType="slide">
         <ImageModal
           returnButton="Ta om"
@@ -105,6 +115,7 @@ export default function NewCase({ navigation }) {
           nextPageText="Välj"
         />
       </Modal>
+      {/* Model how display an example */}
       <Modal visible={modalExampleOpen} animationType="slide">
         <ExampleModal
           icon="close-circle"
@@ -116,6 +127,7 @@ export default function NewCase({ navigation }) {
   );
 }
 
+//Style for the view
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#ffffff',

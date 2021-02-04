@@ -9,7 +9,7 @@ const initialState = {
   posts: [],
 };
 
-//Updates the states what get from the action
+//Updates the states that gets from the action
 export const user = (state = initialState, action) => {
   switch (action.type) {
     case USER_STATE_CHANGE:

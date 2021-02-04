@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import * as firebase from 'firebase';
 
 import { Provider } from 'react-redux';
@@ -14,10 +14,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import MainScreen from '../navigation/Main';
 import MainScreenCostumer from '../navigation/MainCustomer';
-import SaveScreen from '../screens/main/Save';
-import AddScreen from '../screens/main/Add';
 import LoginScreen from '../screens/auth/Login';
-import RegisterScreen from '../screens/auth//Register';
 import InfoCaseScreen from '../screens/customer/InfoCase';
 import SaveCaseScreen from '../screens/customer/SaveCase';
 import NewCaseScreen from '../screens/customer/NewCase';
@@ -52,8 +49,8 @@ export class MainNavigation extends Component {
     const { loggedIn, loaded } = this.state;
     if (!loaded) {
       return (
-        <View style={styles.Loading}>
-          <Text>Laddar</Text>
+        <View style={styles.loading}>
+          <ActivityIndicator size="large" color="#875195" />
         </View>
       );
     }
@@ -66,7 +63,6 @@ export class MainNavigation extends Component {
               component={MainScreenCostumer}
               options={{ headerShown: false }}
             />
-            <Stack.Screen name="Register" component={RegisterScreen} />
             <Stack.Screen
               name="Login"
               component={LoginScreen}
@@ -96,7 +92,7 @@ export class MainNavigation extends Component {
               name="SaveCase"
               component={SaveCaseScreen}
               options={{
-                headerTitle: 'Kontakt Uppgifter',
+                headerTitle: 'Kontaktuppgifter',
                 headerStyle: { backgroundColor: '#875195' },
                 headerTintColor: 'white',
               }}
@@ -121,16 +117,6 @@ export class MainNavigation extends Component {
               component={MainScreen}
               options={{ headerShown: false }}
             />
-            <Stack.Screen
-              name="Add"
-              component={AddScreen}
-              navigation={this.props.navigation}
-            />
-            <Stack.Screen
-              name="Save"
-              component={SaveScreen}
-              navigation={this.props.navigation}
-            />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
@@ -142,7 +128,7 @@ export default MainNavigation;
 
 //Styles for my checkList Array
 const styles = StyleSheet.create({
-  Loading: {
+  loading: {
     flex: 1,
     justifyContent: 'center',
   },

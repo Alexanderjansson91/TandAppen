@@ -1,8 +1,4 @@
-import {
-  USER_POSTS_STATE_CHANGE,
-  USER_STATE_CHANGE,
-  CLEAR_DATA}
-  from '../constants/index'
+import { USER_POSTS_STATE_CHANGE, USER_STATE_CHANGE, CLEAR_DATA} from '../constants/index'
 import firebase from 'firebase';
 require('firebase/firestore');
 
@@ -12,7 +8,7 @@ export function clearData() {
   });
 }
 
-//Fetch user from firesstore
+//Fetch user from firebase firestore
 export function fetchUser() {
   return ((dispatch) => {
     firebase
@@ -30,7 +26,7 @@ export function fetchUser() {
   });
 }
 
-//Fetch cases from react native
+//Fetch cases from firebase firestore
 export function fetchUserPosts() {
   return ((dispatch) => {
     firebase
