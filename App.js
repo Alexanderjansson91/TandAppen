@@ -3,7 +3,6 @@ import * as firebase from 'firebase';
 import '@firebase/auth';
 import '@firebase/firestore';
 import MainNavigation from './navigation/MainNavigation';
-import FirebaseApp from './Firebase';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
