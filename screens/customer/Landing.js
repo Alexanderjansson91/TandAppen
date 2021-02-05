@@ -48,7 +48,7 @@ export default function Landing({ navigation }) {
   );
 }
 
-//Style for screen
+//Style for the screen
 const styles = StyleSheet.create({
   Container: {
     backgroundColor: '#ffffff',

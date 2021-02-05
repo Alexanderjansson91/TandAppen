@@ -11,10 +11,7 @@ import ProfileScreen from '../screens/main/Profile';
 
 const Tab = createMaterialBottomTabNavigator();
 
-const EmptyScreen = () => {
-  return null;
-};
-
+//TabScreen for the coworkers
 export class Main extends Component {
   componentDidMount() {
     this.props.fetchUser();
@@ -56,9 +53,12 @@ export class Main extends Component {
   }
 }
 
+//Access the store states from redux
 const mapStateToProps = (store) => ({
   currentUser: store.userState.currentUser,
 });
+
+//Bind the components to redux
 const mapDispatchProps = (dispatch) =>
   bindActionCreators(
     {

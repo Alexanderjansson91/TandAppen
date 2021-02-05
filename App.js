@@ -23,8 +23,8 @@ if (firebase.apps.length === 0) {
 export class App extends Component {
   render() {
     return (
-    <MainNavigation />
-    );
-  }
+     <MainNavigation /> 
+   );
+  } 
 }
 export default App;

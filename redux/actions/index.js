@@ -2,13 +2,14 @@ import { USER_POSTS_STATE_CHANGE, USER_STATE_CHANGE, CLEAR_DATA} from '../consta
 import firebase from 'firebase';
 require('firebase/firestore');
 
+//Clear redux store
 export function clearData() {
   return ((dispatch) => {
     dispatch({ type: CLEAR_DATA });
   });
 }
 
-//Fetch user from firebase firestore
+//Fetch user from firestore and send USER_STATE_CHANGE to the reducer
 export function fetchUser() {
   return ((dispatch) => {
     firebase
@@ -26,7 +27,7 @@ export function fetchUser() {
   });
 }
 
-//Fetch cases from firebase firestore
+//Fetch cases from firestore and send USER_POSTS_STATE_CHANGE to the reducer
 export function fetchUserPosts() {
   return ((dispatch) => {
     firebase

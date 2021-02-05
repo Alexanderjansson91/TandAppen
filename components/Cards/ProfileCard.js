@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-//Profile card
+//Card how display the information about the user
 const ProfileCard = (props) => {
   const { viewContainer, infoText } = styles;
   return (

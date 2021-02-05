@@ -7,7 +7,7 @@ const PageButton = (props) => {
   return (
     <View style={viewContainer}>
       <View style={parent}>
-        <TouchableOpacity style={styles.profilContainer} onPress={props.click}>
+        <TouchableOpacity style={styles.buttonContainer} onPress={props.click}>
           <View style={styles.buttonView}>
             <Text style={styles.textButton}>{props.textButton}</Text>
           </View>
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   viewContainer: {
     flex: 1,
   },
-  profilContainer: {
+  buttonContainer: {
     height: 20,
     width: 200,
     flexDirection: 'row',

@@ -29,7 +29,7 @@ export default function Feed({ navigation }) {
                   dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
                   sunt in culpa qui officia deserunt mollit anim id est laborum."
       />
-      {/* Button hows open the mail App */}
+      {/* Button how the mail App */}
       <ContactButton
         textInfo="Kontakta oss "
         icon="email"
@@ -39,6 +39,7 @@ export default function Feed({ navigation }) {
   );
 }
 
+//Style for the screen
 const styles = StyleSheet.create({
   topContainer: {
     backgroundColor: '#fff',

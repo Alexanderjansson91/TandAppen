@@ -1,5 +1,11 @@
 import React, { useState, useRef, useReducer } from 'react';
-import { StyleSheet, View, Image, KeyboardAvoidingView } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 
 import TextInputField from '../../components/textfields/InputTextField';
 import SubHeading from '../../components/text/Subheading';
@@ -16,7 +22,7 @@ export default function Save(props) {
   const [phone, setPhone] = useState(' ');
   const [message, setMessage] = useState(' ');
 
-  //Counter function
+  //Counter
   const initialState = 0;
   const reducer = (state, action) => {
     switch (action) {
@@ -30,9 +36,9 @@ export default function Save(props) {
         throw new Error('Unexpected action');
     }
   };
-
   const [count, dispatch] = useReducer(reducer, initialState);
-  //Upload the image to Firebase storage
+
+  //Upload the image and post to Firebase
   const uploadImage = async () => {
     const uri = props.route.params.image;
     const childPath = (`post/${Math.random().toString(36)}`);
@@ -58,7 +64,7 @@ export default function Save(props) {
     task.on('state_changed', taskProgress, taskError, taskCompleted);
   };
 
-  //Save the new post to the firestore
+  //Save the new post to the firestore and navigate back to LandingScreen
   const savePostData = (downloadURL) => {
     firebase
       .firestore()
@@ -78,14 +84,13 @@ export default function Save(props) {
       }));
   };
 
-
   const inputEl2 = useRef(null);
   const inputEl3 = useRef(null);
   const inputEl4 = useRef(null);
   return (
     //Move textfield if keyboard appers
     <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}
     >
       <View style={styles.viewContainer}>
@@ -95,6 +100,7 @@ export default function Save(props) {
           <SubHeading subHeading="Fyll i dina uppgifter nedan, så kontaktar vi dig inom 24 timmar." />
         </View>
         <View style={styles.space} />
+        {/* Input Textfields how set the value  */}
         <TextInputField
           onSubmit={() => inputEl2.current.focus()}
           placeHolder="Namn"
@@ -119,6 +125,7 @@ export default function Save(props) {
         />
         <View style={styles.space} />
         <SubHeading subHeading="När var du oss tandläkaren senast?" />
+        {/* counter */}
         <CounterCard
           counterMinusClick={() => dispatch('decrement')}
           iconMinus="minus-circle"

@@ -44,8 +44,8 @@ export class MainNavigation extends Component {
       }
     });
   }
-  //Navigation stack for Costumer pages
   render() {
+    //Loading view whit ActivityIndicator
     const { loggedIn, loaded } = this.state;
     if (!loaded) {
       return (
@@ -54,6 +54,7 @@ export class MainNavigation extends Component {
         </View>
       );
     }
+    //Navigation stack for Costumer pages
     if (!loggedIn) {
       return (
         <NavigationContainer>
@@ -67,6 +68,7 @@ export class MainNavigation extends Component {
               name="Login"
               component={LoginScreen}
               options={{
+                headerTitle: 'Företagsinloggning',
                 headerBackTitle: 'Hem',
                 headerStyle: { backgroundColor: '#875195' },
                 headerTintColor: 'white',
@@ -126,7 +128,7 @@ export class MainNavigation extends Component {
 
 export default MainNavigation;
 
-//Styles for my checkList Array
+//Styles for my loading
 const styles = StyleSheet.create({
   loading: {
     flex: 1,

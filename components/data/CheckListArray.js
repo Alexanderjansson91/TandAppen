@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-//My header View
+//Array for the checklist on the info screen
 const CheckListArray = () => {
   const iconArray = <MatetrialCommunityIcons name="check-circle" style={styles.iconStyle}/>;
   const { viewContainer } = styles;
@@ -14,6 +14,7 @@ const CheckListArray = () => {
     { key: 5, item: ' Osäker, se exempel på respektive sida', icon: iconArray },
   ];
 
+  //Flatlist how display the array
   return (
     <View style={viewContainer}>
       <FlatList

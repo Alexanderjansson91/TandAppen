@@ -33,7 +33,9 @@ const UploadLoader = (props) => {
             textStyle={styles.spinnerTextStyle}
           />
         ) : (
-          <TouchableOpacity style={styles.profilContainer} onPress= {() =>{startLoading(); props.uploadClick(); }}>
+          <TouchableOpacity
+            style={styles.profilContainer}
+            onPress= {() =>{startLoading(); props.uploadClick(); }}>
             <View style={styles.buttonView}>
               <Text style={styles.textButton}>{props.submitText}</Text>
               <MatetrialCommunityIcons

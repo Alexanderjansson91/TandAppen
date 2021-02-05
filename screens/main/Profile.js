@@ -21,7 +21,7 @@ function Profile(props) {
     };
   }, []);
 
-  //Log out current uer
+  //Log out currentuser
   const onLogout = () => {
     firebase.auth().signOut();
   };
@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
   },
 });
 
+//Access the store states from redux
 const mapStateToProps = (store) => ({
   currentUser: store.userState.currentUser,
   posts: store.userState.posts,

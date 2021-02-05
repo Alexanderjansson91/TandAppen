@@ -29,7 +29,7 @@ export default function NewCase({ navigation }) {
     })();
   }, []);
 
-  //Function for take an Image
+  //async handling for take an Image
   const takePicture = async () => {
     if (camera) {
       const data = await camera.takePictureAsync(null);
@@ -37,7 +37,7 @@ export default function NewCase({ navigation }) {
     }
   };
 
-  //Function for pick an Image from the gallery
+  //async handling for pick an Image from the gallery
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,

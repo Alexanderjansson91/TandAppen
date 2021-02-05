@@ -3,7 +3,7 @@ import { View, StyleSheet, Linking } from 'react-native';
 
 import EmailInputField from '../../components/textfields/EmailTextField';
 import PasswordInputField from '../../components/textfields/PasswordTextField';
-import ContactCompany from '../../components/Cards/ContactCard'
+import ContactCompany from '../../components/Cards/ContactCard';
 
 import SignInButton from '../../components/buttons/PageButton';
 import SubHeading from '../../components/text/Subheading';
@@ -18,7 +18,7 @@ export class Login extends Component {
     };
     this.onSignInonSignUp = this.onSignIn.bind(this);
   }
-  //Sign in whit Email and password
+  //Sign in whit Email and password using firebase Auth
   onSignIn() {
     const { email, password } = this.state;
     firebase
@@ -49,7 +49,11 @@ export class Login extends Component {
           secureText={true}
         />
         <View style={styles.space} />
-        <SignInButton click={() => this.onSignIn()} textInfo="Logga in" />
+        <SignInButton
+          click={() => this.onSignIn()}
+          textInfo="Logga in"
+          icon="lock-open"
+        />
         <ContactCompany
           readMoreText="Vill ditt företag ha en liknande App?"
           textInfo="Kontakt"

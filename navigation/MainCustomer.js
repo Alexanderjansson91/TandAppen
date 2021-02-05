@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { StyleSheet } from 'react-native';
 
 import LandingScreen from '../screens/customer/Landing';
 import InfoCaseScreen from '../screens/customer/InfoCase';
@@ -9,10 +8,7 @@ import AboutUsScreen from '../screens/customer/About';
 
 const Tab = createMaterialBottomTabNavigator();
 
-const EmptyScreen = () => {
-  return null;
-};
-
+//Tabscreen for the costumers pages
 export class MainCustomer extends Component {
   render() {
     return (
@@ -60,12 +56,5 @@ export class MainCustomer extends Component {
     );
   }
 }
-
-//Styles for my header
-const styles = StyleSheet.create({
-  tabBarStyle: {
-    backgroundColor: 'black',
-  },
-});
 
 export default MainCustomer;

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-//Contact card for companys used on Login page
+//Contact card for companys, used on Login page
 const ContactCard = (props) => {
   const { viewContainer, infoText } = styles;
   return (

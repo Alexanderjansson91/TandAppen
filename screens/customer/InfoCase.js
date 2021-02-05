@@ -11,7 +11,7 @@ import SubHeading from '../../components/text/Subheading';
 import ButtonNav from '../../components/buttons/PageButton';
 
 export default function InfoCase({ navigation }) {
-  //Ignore a log how not hould displayed
+  //Ignore a log how not should display
   useEffect(() => {
     LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
   }, []);

@@ -4,6 +4,7 @@ import {
   CLEAR_DATA,
 } from '../constants';
 
+//Constructor
 const initialState = {
   currentUser: null,
   posts: [],

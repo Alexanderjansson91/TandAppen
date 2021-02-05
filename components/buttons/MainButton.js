@@ -8,12 +8,11 @@ const MainButton = (props) => {
   return (
     <View style={viewContainer}>
       <View style={styles.parent}>
-        <TouchableOpacity style={styles.profilContainer} onPress={props.click}>
+        <TouchableOpacity style={styles.buttonContainer} onPress={props.click}>
           <View>
             <MatetrialCommunityIcons
               name={props.icon}
-              color="white"
-              size={26}
+              style={styles.iconStyle}
             />
           </View>
         </TouchableOpacity>
@@ -35,7 +34,12 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     flexDirection: 'row',
   },
-  profilContainer: {
+  iconStyle: {
+    fontSize: 25,
+    marginLeft: 12,
+    color: '#EFA600',
+  },
+  buttonContainer: {
     fontSize: 20,
     marginTop: 50,
     marginRight: 20,

@@ -83,7 +83,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
     marginLeft: 20,
   },
-
   buttonView: {
     flexDirection: 'row',
     alignItems: 'center',

@@ -8,7 +8,7 @@ const PageButton = (props) => {
   return (
     <View style={viewContainer}>
       <View style={parent}>
-        <TouchableOpacity style={styles.profilContainer} onPress={props.click}>
+        <TouchableOpacity style={styles.buttonContainer} onPress={props.click}>
           <View style={styles.buttonView}>
             <Text style={styles.textButton}>{props.textInfo}</Text>
             <MatetrialCommunityIcons
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginBottom: 30,
   },
-  profilContainer: {
+  buttonContainer: {
     backgroundColor: '#875195',
     height: 50,
     width: 200,

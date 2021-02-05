@@ -1,58 +1,62 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
-import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import MatetrialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 //Header View
 const Header = (props) => {
-    const { logoContainer, viewContainer, profilContainer, parent } = styles;
-    return (
-        <View style={viewContainer}>
-            <View style={styles.parent}>
-                <Text style={logoContainer}>
-                    {props.headerText}
-                </Text>
-                <TouchableOpacity style={styles.profilContainer} onPress={props.click}>
-                    <View>
-                    <MatetrialCommunityIcons name={props.icon} color="white" size={26}/>
-                    </View>
-                </TouchableOpacity>         
-            </View>
-        </View>
-    )
-}
-
-
+  const { logoContainer, viewContainer } = styles;
+  return (
+    <View style={viewContainer}>
+      <View style={styles.parent}>
+        <Text style={logoContainer}>{props.headerText}</Text>
+        <TouchableOpacity style={styles.profilContainer} onPress={props.click}>
+          <View>
+            <MatetrialCommunityIcons
+              name={props.icon}
+              style={styles.iconStyles}
+            />
+          </View>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
 
 //Style for header
 const styles = StyleSheet.create({
-    viewContainer:{
-        backgroundColor: '#875195',
-        height:150
-     },
-     logoContainer:{
-         fontSize:20,
-         marginTop: 50, 
-         marginLeft: 20,
-         color:"#ffffff",
-         flexDirection:"row",
-     },
-     profilContainer:{
-         fontSize:20,
-         marginTop: 50, 
-         marginRight: 20,
-         color:"#ffffff",
-         marginBottom: 40, 
-         flexDirection:"row",
-         position: 'absolute',
-         right: 0
-     },
-     parent: {
-         flex: 1,
-         flexDirection: 'row',   
-       }
- 
-
+  viewContainer: {
+    backgroundColor: '#875195',
+    height: 150,
+  },
+  iconStyles: {
+    marginRight: 10,
+    right: 0,
+    position: 'absolute',
+    color: 'white',
+    fontSize: 25,
+    marginTop: '1%',
+  },
+  logoContainer: {
+    fontSize: 20,
+    marginTop: 50,
+    marginLeft: 20,
+    color: '#ffffff',
+    flexDirection: 'row',
+  },
+  profilContainer: {
+    fontSize: 20,
+    marginTop: 50,
+    marginRight: 20,
+    color: '#ffffff',
+    marginBottom: 40,
+    flexDirection: 'row',
+    position: 'absolute',
+    right: 0,
+  },
+  parent: {
+    flex: 1,
+    flexDirection: 'row',
+  },
 });
 
 export default Header;

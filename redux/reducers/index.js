@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { user } from './user';
 
-//help function how sent to createStore.
+//help function that reduces the functions in user to a single reducer
 const Reducers = combineReducers({
   userState: user,
 });
