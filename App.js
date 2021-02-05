@@ -7,7 +7,7 @@ import FirebaseApp from './Firebase';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyALnRSDP24y45XNf1-gqNFaS0vFNZ_nBWM",
   authDomain: "tandappen-80969.firebaseapp.com",
   projectId: "tandappen-80969",
   storageBucket: "tandappen-80969.appspot.com",
