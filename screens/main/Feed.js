@@ -26,11 +26,7 @@ function Feed(props) {
   //A view that shows all cases
   return (
     <View style={styles.container}>
-      <Header
-        headerText="Nordic Dental"
-        click={() => onLogout()}
-        icon="logout"
-      />
+      <Header headerText="Tandappen" click={() => onLogout()} icon="logout" />
       <MainView />
       <View style={styles.containerGallery}>
         {/* All item displays in an Flatlist */}

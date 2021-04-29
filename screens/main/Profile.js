@@ -43,11 +43,7 @@ function Profile(props) {
   //A view that shows the profile
   return (
     <View style={styles.container}>
-      <Header
-        headerText="Nordic Dental"
-        click={() => onLogout()}
-        icon="logout"
-      />
+      <Header headerText="Tandappen" click={() => onLogout()} icon="logout" />
       <MainView />
       <View style={styles.infoContainer}>
         <ProfileCard

@@ -20,7 +20,7 @@ export default function InfoCase({ navigation }) {
   return (
     <View style={styles.topContainer}>
       <Header
-        headerText="Nordic Dental"
+        headerText="Tandappen"
         click={() => navigation.navigate('Login')}
         icon="account-circle"
       />

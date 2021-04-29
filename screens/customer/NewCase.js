@@ -120,7 +120,7 @@ export default function NewCase({ navigation }) {
         <ExampleModal
           icon="close-circle"
           onClose={() => setExampleModalOpen(false)}
-          exampleImage={require('../../assets/teeth.jpg')}
+          exampleImage={require('../../assets/Alexander.jpg')}
         />
       </Modal>
     </View>

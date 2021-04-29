@@ -12,7 +12,7 @@ export default function Landing({ navigation }) {
     <View style={styles.Container}>
       <View>
         <Header
-          headerText="Nordic Dental"
+          headerText="Tandappen"
           click={() => navigation.navigate('Login')}
           icon="account-circle"
         />
